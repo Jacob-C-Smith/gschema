@@ -1,0 +1,14 @@
+{
+    "$schema": "../../light schema.json",
+    "name": "Light",
+    "color": [
+        60,
+        60,
+        60
+    ],
+    "location": [
+        1,
+        1,
+        1
+    ]
+}

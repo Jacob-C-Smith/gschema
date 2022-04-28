@@ -86,9 +86,13 @@
             "default"     : 2,
             "maximum"     : 32,
             "description" : "Specifies how many threads are used to load a scene"
-        }
-
-        
+        }        
+    },
+    "if": {
+        "properties": {"input" : {"type" : "object"}}
+    },
+    "then": {
+        "properties": {"input" : {"$ref": "input schema.json"}}
     },
     "required" : [ "name" ]
 }

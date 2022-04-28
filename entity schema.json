@@ -1,0 +1,17 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Entity",
+    "type"         : "object",
+    "description"  : "G10 entity object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Entity",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the entity"
+        }
+    },
+    "required"     : [ "name" ]
+}

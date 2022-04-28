@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "title" : "G10 Input",
+    "type" : "object",
+    "description": "The G10 input defines",
+    "properties": {
+        "name" : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "G10 Scene",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the scene"
+        },
+        "comment" : {
+            "title": "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description": "A comment that is ignored by G10"
+        },
+        "entities" : {
+            "title"       : "entities",
+            "type"        : "array",
+            "description" : "A set of entities",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "entity schema.json" },
+            "default"     : [ {} ]
+        },
+        "cameras" : {
+            "title"       : "cameras",
+            "type"        : "array",
+            "description" : "A set of cameras",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "camera schema.json" },
+            "default"     : [ {} ]
+        },
+        "lights" : {
+            "title"       : "lights",
+            "type"        : "array",
+            "description" : "A set of lights",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "light schema.json" },
+            "default"     : [ {} ]
+        },
+        "skybox" : {
+            "title"       : "skybox",
+            "type"        : [ "object", "string" ],
+            "description" : "",
+            "default"     : { }
+        }        
+    },
+    "required" : [ "name" ]
+}

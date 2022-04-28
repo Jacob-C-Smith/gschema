@@ -1,0 +1,17 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Camera",
+    "type"         : "object",
+    "description"  : "G10 camera object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Camera",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the camera"
+        }
+    },
+    "required"     : [ "name" ]
+}

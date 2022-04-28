@@ -1,0 +1,35 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Light",
+    "type"         : "object",
+    "description"  : "G10 light object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Light",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the light"
+        },
+        "location" : {
+            "title"       : "location",
+            "type"        : "array",
+            "description" : "location of the light, < x, y, z >",
+            "items"       : { "type" : "number" },
+            "minItems"    : 3,
+            "maxItems"    : 3,
+            "default"     : [ 1.0, 1.0, 1.0 ]
+        },
+        "color"    : {
+            "title"       : "color",
+            "type"        : "array",
+            "description" : "radiance of the light, < r, g, b > * wattage",
+            "items"       : { "type" : "number" },
+            "minItems"    : 3,
+            "maxItems"    : 3,
+            "default"     : [ 60.0, 60.0, 60.0 ]
+        }      
+    },
+    "required"     : [ "name", "location", "color" ]
+}
