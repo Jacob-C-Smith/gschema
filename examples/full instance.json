@@ -1,0 +1,15 @@
+{
+    "$schema"              : "../instance schema.json",
+    "name"                 : "Game",
+    "input"                : "G10/input.json",
+    "window width"         : 1920,
+    "window height"        : 1080, 
+    "window title"         : "G10 Debug",
+    "fullscreen"           : true,
+    "cache part count"     : 128,
+    "cache material count" : 128,
+    "cache shader count"   : 32,
+    "initial scene"        : "Room 3.json",
+    "network bandwidth"    : 64,
+    "loading thread count" : 4
+}

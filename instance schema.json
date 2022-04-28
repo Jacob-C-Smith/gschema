@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "title" : "G10 Instance",
+    "type" : "object",
+    "description": "The G10 instance defines how an application using G10 will operate",
+    "properties": {
+        "name" : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "G10 instance",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The instance name is used internally to identify the instance"
+        },
+        "input" : {
+            "title"       : "input",
+            "type"        : [ "string", "object" ],
+            "description" : "Input is a named set of binds. Strings are read as file paths. Objects are read as input json objects. See input schema.",
+            "default"     : "G10/input.json"
+        },
+        "window width" : {
+            "title"       : "window width",
+            "type"        : "integer",
+            "default"     : 800,
+            "minimum"     : 1,
+            "maximum"     : 65535,
+            "description" : "The width of the window in pixels"
+        },
+        "window height" : {
+            "title"       : "window height",
+            "type"        : "integer",
+            "default"     : 600,
+            "minimum"     : 1,
+            "maximum"     : 65535,
+            "description" : "The height of the window in pixels"
+        },
+        "window title" : {
+            "title"       : "window title",
+            "type"        : "string",
+            "default"     : "G10",
+            "description" : "The title of the window"
+        },
+        "fullscreen" : {
+            "title"       : "fullscreen",
+            "type"        : "boolean",
+            "default"     : false,
+            "description" : "Is the window fullscreen?"
+        },
+        "cache part count" : {
+            "title"       : "cache part count",
+            "type"        : "integer",
+            "default"     : 128,
+            "maximum"     : 2048,
+            "description" : "Specifies how many parts can be cached at a time. Uncached parts must be (re)loaded from the disk."
+        },
+        "cache material count" : {
+            "title"       : "cache material count",
+            "type"        : "integer",
+            "default"     : 128,
+            "maximum"     : 2048,
+            "description" : "Specifies how many materials can be cached at a time. Uncached materials must be (re)loaded from the disk."
+        },
+        "cache shader count" : {
+            "title"       : "cache shader count",
+            "type"        : "integer",
+            "default"     : 32,
+            "maximum"     : 2048,
+            "description" : "Specifies how many shaders can be cached at a time. Uncached shaders must be (re)loaded from the disk."
+        },
+        "initial scene" : {
+            "title"       : "initial scene",
+            "type"        : "string",
+            "default"     : "/path/to/scene.json",
+            "description" : "Specifies The first scene to load from the disk"
+        },
+        "network bandwidth" : {
+            "title"       : "network bandwidth",
+            "type"        : "integer",
+            "default"     : 64,
+            "minimum"     : 1,
+            "description" : "Specifies maximum network traffic in kb/s"
+        },
+        "loading thread count" : {
+            "title"       : "loading thread count",
+            "type"        : "integer",
+            "default"     : 2,
+            "maximum"     : 32,
+            "description" : "Specifies how many threads are used to load a scene"
+        }
+
+        
+    },
+    "required" : [ "name" ]
+}
