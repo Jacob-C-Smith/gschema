@@ -13,39 +13,58 @@
             "description" : "The name of the scene"
         },
         "comment" : {
-            "title": "comment",
-            "type" : "string",
-            "default" : "comment",
-            "description": "A comment that is ignored by G10"
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
         },
         "entities" : {
             "title"       : "entities",
             "type"        : "array",
-            "description" : "A set of entities",
+            "description" : "A list of entities",
             "uniqueItems" : true,
-            "items"       : { "$ref": "entity schema.json" },
-            "default"     : [ {} ]
+            "items"       : {
+                "oneOf" : [
+                    { "type" : "string" },
+                    { "$ref" : "entity schema.json" }
+                ] 
+            },
+            "default"     : [ ]
         },
         "cameras" : {
             "title"       : "cameras",
             "type"        : "array",
-            "description" : "A set of cameras",
+            "description" : "A list of cameras",
             "uniqueItems" : true,
-            "items"       : { "$ref": "camera schema.json" },
-            "default"     : [ {} ]
+            "items"       : {
+                "oneOf" : [ 
+                    { "type" : "string" },
+                    { "$ref" : "camera schema.json" }
+                ] 
+            },
+            "default"     : [ ]
         },
         "lights" : {
             "title"       : "lights",
             "type"        : "array",
-            "description" : "A set of lights",
+            "description" : "A list of lights",
             "uniqueItems" : true,
-            "items"       : { "$ref": "light schema.json" },
-            "default"     : [ {} ]
+            "items"       : {
+                "oneOf" : [ 
+                    { "type" : "string" },
+                    { "$ref" : "light schema.json" }
+                ] 
+            },
+            "default"     : [ ]
         },
         "skybox" : {
             "title"       : "skybox",
-            "type"        : [ "object", "string" ],
-            "description" : "",
+            "type"        : [ "string", "object" ],
+            "description" : "The skybox used by the scene",
+            "oneOf"       : [
+                        { "type":"string" },
+                        { "$ref": "skybox schema.json" }
+                      ],
             "default"     : { }
         }        
     },

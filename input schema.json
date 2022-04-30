@@ -17,7 +17,7 @@
             "type"        : "array",
             "description" : "A set of binds",
             "uniqueItems" : true,
-            "items": { "$ref": "#/$defs/bind" },
+            "items"       : { "$ref": "#/$defs/bind" },
             "default"     : [
                                 {
                                     "name" : "FORWARD",
@@ -184,7 +184,13 @@
                             "LEFT ALT",
                             "RIGHT CONTROL",
                             "RIGHT SHIFT",
-                            "RIGHT ALT"
+                            "RIGHT ALT",
+                            "MOUSE 1",
+                            "MOUSE 2",
+                            "MOUSE UP",
+                            "MOUSE DOWN",
+                            "MOUSE LEFT",
+                            "MOUSE RIGHT"
                         ]
                     }
                 }

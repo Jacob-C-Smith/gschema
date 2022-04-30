@@ -1,4 +1,7 @@
 {
     "$schema": "../../scene schema.json",
-    "name": "G10 Scene"
+    "name": "G10 Scene",
+    "entities": [
+        
+    ]
 }

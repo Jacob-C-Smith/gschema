@@ -1,30 +1,4 @@
 {
     "$schema" : "../../input schema.json",
-    "name"    : "G10 instance",
-    "binds"   : [
-        {
-            "name": "FORWARD",
-            "keys": [
-                "W"
-            ]
-        },
-        {
-            "name": "BACKWARD",
-            "keys": [
-                "S"
-            ]
-        },
-        {
-            "name": "STRAFE LEFT",
-            "keys": [
-                "A"
-            ]
-        },
-        {
-            "name": "STRAFE RIGHT",
-            "keys": [
-                "D"
-            ]
-        }
-    ]
+    "name"    : "G10 instance"
 }

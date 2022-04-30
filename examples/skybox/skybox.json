@@ -1,0 +1,6 @@
+{
+    "$schema"     : "../../skybox schema.json",
+    "name"        : "Skybox",
+    "environment" : "path/to/environment.hdr",
+    "irradiance"  : "path/to/irradiance.hdr"
+}

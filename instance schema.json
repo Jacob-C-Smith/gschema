@@ -16,6 +16,10 @@
             "title"       : "input",
             "type"        : [ "string", "object" ],
             "description" : "Input is a named set of binds. Strings are read as file paths. Objects are read as input json objects. See input schema.",
+            "oneOf"       : [
+                                { "type" : "string" },
+                                { "$ref" : "input schema.json" }
+                            ],
             "default"     : "G10/input.json"
         },
         "window width" : {
@@ -45,6 +49,12 @@
             "type"        : "boolean",
             "default"     : false,
             "description" : "Is the window fullscreen?"
+        },
+        "log file" : {
+            "title": "log file",
+            "type" : "string",
+            "default" : "log.txt",
+            "description" : "G10 logging functions will redirect output from stdout to the specified file. Leave empty or unspecified to write to stdout."
         },
         "cache part count" : {
             "title"       : "cache part count",
@@ -87,12 +97,6 @@
             "maximum"     : 32,
             "description" : "Specifies how many threads are used to load a scene"
         }        
-    },
-    "if": {
-        "properties": {"input" : {"type" : "object"}}
-    },
-    "then": {
-        "properties": {"input" : {"$ref": "input schema.json"}}
     },
     "required" : [ "name" ]
 }

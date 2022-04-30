@@ -5,25 +5,59 @@
         {
             "name": "FORWARD",
             "keys": [
-                "W"
+                "W",
+                "UP"
             ]
         },
         {
             "name": "BACKWARD",
             "keys": [
-                "S"
+                "S",
+                "DOWN"
             ]
         },
         {
             "name": "STRAFE LEFT",
             "keys": [
-                "A"
+                "A",
+                "LEFT"
             ]
         },
         {
             "name": "STRAFE RIGHT",
             "keys": [
-                "D"
+                "D",
+                "RIGHT"
+            ]
+        },
+        {
+            "name" : "CAMERA UP",
+            "keys" : [
+                "MOUSE UP"
+            ]
+        },
+        {
+            "name" : "CAMERA DOWN",
+            "keys" : [
+                "MOUSE DOWN"
+            ]
+        },
+        {
+            "name" : "CAMERA LEFT",
+            "keys" : [
+                "MOUSE LEFT"
+            ]
+        },
+        {
+            "name" : "CAMERA RIGHT",
+            "keys" : [
+                "MOUSE RIGHT"
+            ]
+        },
+        {
+            "name": "QUIT",
+            "keys": [
+                "ESCAPE"
             ]
         }
     ]

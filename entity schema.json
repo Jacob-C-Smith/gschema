@@ -11,7 +11,45 @@
             "minLength"   : 1,
             "maxLength"   : 255,
             "description" : "The name of the entity"
-        }
+        },
+        "materials" : {
+            "title": "materials",
+            "type" : "array",
+            "description": "A list of materials",
+            "uniqueItems" : true,
+            "items"       : {
+                "oneOf" : [ 
+                    { "type" : "string" },
+                    { "$ref" : "material schema.json" }
+                ] 
+            },
+            "default" : [ ]
+        },
+        "parts" : {
+            "title": "parts",
+            "type" : "array",
+            "description": "A list of parts",
+            "uniqueItems": true,
+            "items": {
+                "oneOf" : [
+                    { "type" : "string" },
+                    { "$ref": "parts schema.json" }
+                ]
+            },
+            "default" : [ ]
+        },
+        "shader" : {
+            "title": "shader",
+            "type" : [ "string", "object" ],
+            "description": "Specifies a shader ",
+            "uniqueItems": true,
+            "oneOf" : [
+                    { "type" : "string" },
+                    { "$ref": "parts schema.json" }
+            ],
+            "default" : "G10/shaders/G10 PBR.json"
+        },
+        ""
     },
     "required"     : [ "name" ]
 }
