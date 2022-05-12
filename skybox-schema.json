@@ -25,5 +25,5 @@
             "description" : "A blurred, low resolution version of the environment map. Used in PBR calculations"
         }        
     },
-    "required" : [ "name", "environment", "irradiance" ]
+    "required" : [ "name", "environment" ]
 }
