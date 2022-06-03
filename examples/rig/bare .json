@@ -1,0 +1,20 @@
+{
+    "$schema" : "../../rig-schema.json",
+    "name"    : "Rig",
+    "bones"   : [
+        {
+            "name"     : "bone",
+            "index"    : 0,
+            "childern" : [
+                {
+                    "name"  : "bone 1",
+                    "index" : 1
+                },
+                {
+                    "name"  : "bone 2", 
+                    "index" : 2
+                }
+            ]
+        }
+    ]
+}

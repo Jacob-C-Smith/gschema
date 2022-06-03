@@ -12,6 +12,12 @@
             "maxLength"   : 255,
             "description" : "The name of the entity"
         },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
         "materials" : {
             "title": "materials",
             "type" : "array",
@@ -20,7 +26,7 @@
             "items"       : {
                 "oneOf" : [ 
                     { "type" : "string" },
-                    { "$ref" : "material schema.json" }
+                    { "$ref" : "material-schema.json" }
                 ] 
             },
             "default" : [ ]
@@ -33,7 +39,7 @@
             "items": {
                 "oneOf" : [
                     { "type" : "string" },
-                    { "$ref": "parts schema.json" }
+                    { "$ref": "part-schema.json" }
                 ]
             },
             "default" : [ ]
@@ -45,11 +51,67 @@
             "uniqueItems": true,
             "oneOf" : [
                     { "type" : "string" },
-                    { "$ref": "parts schema.json" }
+                    { "$ref": "shader-schema.json" }
             ],
             "default" : "G10/shaders/G10 PBR.json"
         },
-        ""
+        "transform" : {
+            "title": "transform",
+            "type" : [ "string", "object" ],
+            "description": "Specifies a transform",
+            "uniqueItems": true,
+            "oneOf" : [
+                    { "type" : "string" },
+                    { "$ref": "transform-schema.json" }
+            ],
+            "default" : {
+                "location": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    90.0,
+                    45.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        },
+        "rigidbody" : {
+            "title": "rigidbody",
+            "type" :  "object",
+            "description": "Specifies a rigidbody",
+            "uniqueItems": true,
+            "oneOf" : [
+                { "type" : "string" },
+                { "$ref": "rigid-body-schema.json" }
+            ],
+            "default" : {
+                "active" : false,
+                "mass"   : 1
+            }
+        },
+        "collider" : {
+
+        },
+        "rig" : {
+            "title": "rig",
+            "type" : [ "object", "string" ],
+            "description": "Specifies a rig",
+            "oneOf": [
+                {"type" : "string"},
+                {"$ref": "rig-schema.json"}
+            ]   
+        },
+        "particle system" : {
+
+        }
     },
     "required"     : [ "name" ]
 }

@@ -1,0 +1,22 @@
+{
+    "$schema": "../../camera-schema.json",
+    "name": "Camera",
+    "fov": 89.99,
+    "near": 0.01,
+    "far": 89.99,
+    "target": [
+        1,
+        1,
+        1
+    ],
+    "up": [
+        0,
+        0,
+        1
+    ],
+    "where": [
+        5,
+        5,
+        1
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../entity-schema.json",
+    "name": "Entity",
+    "materials": [
+        
+    ]
+}

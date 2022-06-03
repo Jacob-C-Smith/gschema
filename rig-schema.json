@@ -1,0 +1,89 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Rig",
+    "type"         : "object",
+    "description"  : "G10 rig object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Rig",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the rig"
+        },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "part name" : {
+            "title": "part name",
+            "type" : "array",
+            "description": "The name of the part to load",
+            "uniqueItems" : true,
+            "items"       : {
+                "oneOf" : [ 
+                    { "type" : "string" },
+                    { "$ref" : "." }
+                ] 
+            },
+            "default" : "Part"
+        },
+        "bones" : {
+            "title": "bone tree",
+            "type" : "object",
+            "description": "A tree of bones",
+            "uniqueItems": true,
+            "items": {
+                "oneOf" : [
+                    { "type" : "object" },
+                    { "$ref": "#/definitions/bone" }
+                ]
+            },
+            "default" : []
+        },
+        "bone count" : {
+
+        },
+        "poses" : {
+
+        }
+    },
+    "definitions" : {
+        "bone" : {
+            "type"       : "object",
+            "properties" : {
+                "name"   : {
+                    "title"       : "name",
+                    "type"        : "string",
+                    "description" : "A bone"
+                },
+                "index"    : { 
+                    "title"       : "index",
+                    "type"        : "integer",
+                    "description" : "The index of the bone group",
+                },
+                "childern" : {
+                    "title" : "name",
+                    "type" : "array",
+                    "description": "A bone",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "type" : "object",
+                                "$ref" : "#/definitions/bone"
+                            }
+                        ]
+                    },
+                    "default" : []
+                }
+            }
+        },
+        "pose" : {
+            
+        }
+    }
+}

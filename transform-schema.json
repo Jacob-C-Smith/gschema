@@ -1,0 +1,37 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Transform",
+    "type"         : "object",
+    "description"  : "G10 transform object definition",
+    "properties"   : {
+        "location" : {
+            "title": "The transform position. < x, y, z >",
+            "type" : "array",
+            "default" : [ 0, 0, 0 ],
+            "minItems" : 3,
+            "maxItems": 3
+        },
+        "rotation" : {
+            "title": "The transform rotation in degrees. Euler angles < x, y, z >",
+            "type" : "array",
+            "default" : [ 0, 0, 0 ],
+            "minItems" : 3,
+            "maxItems": 3
+        },
+        "quaternion" : {
+            "title": "The transform rotation as a quaternion < u, i, j, k >",
+            "type" : "array",
+            "default" : [ 1, 0, 0, 0 ],
+            "minItems" : 4,
+            "maxItems": 4
+        },
+        "scale" : {
+            "title": "The transform scale. <x, y, z>",
+            "type" : "array",
+            "default" : [ 1, 1, 1 ],
+            "minItems" : 3,
+            "maxItems": 3
+        }
+    },
+    "required"     : [ ]
+}

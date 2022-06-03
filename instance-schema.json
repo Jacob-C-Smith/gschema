@@ -12,13 +12,19 @@
             "maxLength"   : 255,
             "description" : "The instance name is used internally to identify the instance"
         },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
         "input" : {
             "title"       : "input",
             "type"        : [ "string", "object" ],
             "description" : "Input is a named set of binds. Strings are read as file paths. Objects are read as input json objects. See input schema.",
             "oneOf"       : [
                                 { "type" : "string" },
-                                { "$ref" : "input schema.json" }
+                                { "$ref" : "input-schema.json" }
                             ],
             "default"     : "G10/input.json"
         },

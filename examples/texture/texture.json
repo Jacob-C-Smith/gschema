@@ -1,0 +1,5 @@
+{
+    "$schema": "../../texture-schema.json",
+    "name": "Texture",
+    "path": "path/to/file.png"
+}

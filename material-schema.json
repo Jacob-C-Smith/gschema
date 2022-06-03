@@ -1,0 +1,30 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Material",
+    "type"         : "object",
+    "description"  : "G10 material object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Material",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the camera"
+        },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "textures" : {
+            "title": "textures",
+            "description": "A list of texture objects used by the material",
+            "type" : "array",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "texture-schema.json" }
+        }
+    },
+    "required"     : [ "name" ]
+}

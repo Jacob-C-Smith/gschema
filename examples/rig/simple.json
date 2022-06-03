@@ -1,0 +1,252 @@
+{
+    
+    "name"       : "Rig",
+    "comment"    : "Created by Jacob Smith 6/22/21",
+    "part"       : "body",
+    "bones"      : {
+        "name"     : "spine",
+        "index"    : 0,
+        "children" : [
+            {
+                "name"     : "thigh.L",
+                "index"    : 19,
+                "children" : [
+                    {
+                        "name"     : "shin.L",
+                        "index"    : 20,
+                        "children" : [
+                            {
+                                "name"     : "foot.L",
+                                "index"    : 21
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+            "name"     : "thigh.R",
+            "index"    : 24,
+            "children" : [
+                {
+                    "name"     : "shin.R",
+                    "index"    : 25,
+                    "children" : [
+                        {
+                            "name"     : "foot.R",
+                            "index"    : 26
+                        }
+                    ]
+                }
+            ]
+            },
+            {
+                    "name"     : "spine.1",
+                    "index"    : 1,
+                    "children" : [
+                    {
+                        "name"     : "spine.2",
+                        "index"    : 2,
+                        "children" : [
+                            {
+                                "name"     : "spine.3",
+                                "index"    : 3,
+                                "children" : [
+                                    {
+                                        "name"     : "shoulder.L",
+                                        "index"    : 7,
+                                        "children" : [
+                                            {
+                                                "name"     : "upper arm.L",
+                                                "index"    : 8,
+                                                "children" : [
+                                                    {
+                                                        "name"     : "forearm.L",
+                                                        "index"    : 9,
+                                                        "children" : [
+                                                            {
+                                                                "name"     : "hand.L",
+                                                                "index"    : 10
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name"     : "shoulder.R",
+                                        "index"    : 11,
+                                        "children" : [
+                                            {
+                                                "name"     : "upper arm.R",
+                                                "index"    : 12,
+                                                "children" : [
+                                                    {
+                                                        "name"     : "forearm.R",
+                                                        "index"    : 13,
+                                                        "children" : [
+                                                            {
+                                                                "name" : "hand.R",
+                                                                "index": 14
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name"     : "neck",
+                                        "index"    : 5,
+                                        "children" : [
+                                            {
+                                                "name"     : "head",
+                                                "index"    : 6
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "bone count" : 26,
+    "poses"      : [
+        {
+            "name"     : "A pose",
+            "bones"    : {
+                "index"    : 0,
+                "head"     : [ 0,0.0552,1.0099 ],
+                "tail"     : [ 0,0.0172,1.1573 ],
+                "children" : [
+                    {
+                        "head"     : [ 0.098,0.0124,1.072 ],
+                        "tail"     : [ 0.098,0.023302,0.58015 ],
+                        "index"    : 19,
+                        "children" : [
+                            {
+                                "head"     : [ 0.098,0.023302,0.58015 ],
+                                "tail"     : [ 0.098,0.029871,0.05412 ],
+                                "index"    : 20,
+                                "children" : [
+                                    {
+                                        "head"     : [ 0.098,0.029871,0.05412 ],
+                                        "tail"     : [ 0.098,-0.0934,0.0167 ],
+                                        "index"    : 21
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                    "head"     : [ -0.098,0.0124,1.072 ],
+                    "tail"     : [ -0.098,0.023302,0.58015 ],
+                    "index"    : 24,
+                    "children" : [
+                        {
+                            "head"     : [ -0.098,0.023302,0.58015 ],
+                            "tail"     : [ -0.098,0.029871,0.05412 ],
+                            "index"    : 25,
+                            "children" : [
+                                {
+                                    "head"     : [ -0.098,0.029871,0.05412 ],
+                                    "tail"     : [ -0.098,-0.0934,0.0167 ],
+                                    "index"    : 26
+                                }
+                            ]
+                        }
+                    ]
+                    },
+                    {
+                            "head"     : [ 0,0.0172,1.1573 ],
+                            "tail"     : [ 0,0,1.2929 ],
+                            "index"    : 1,
+                            "children" : [
+                            {
+                                "head"     : [ 0,0,1.2929 ],
+                                "tail"     : [ 0,0,1.4657 ],
+                                "index"    : 2,
+                                "children" : [
+                                    {
+                                        "head"     : [ 0,0,1.4657 ],
+                                        "tail"     : [ 0,0.0114,1.6582 ],
+                                        "index"    : 3,
+                                        "children" : [
+                                            {
+                                                "head"     : [ 0.0183,-0.0684,1.6051 ],
+                                                "tail"     : [ 0.1694,0.0205,1.605 ],
+                                                "index"    : 7,
+                                                "children" : [
+                                                    {
+                                                        "head"     : [ 0.20949,0.0267,1.6477 ],
+                                                        "tail"     : [ 0.48184,0.008641,1.6425 ],
+                                                        "index"    : 8,
+                                                        "children" : [
+                                                            {
+                                                                "head"     : [ 0.48184,0.008641,1.6425 ],
+                                                                "tail"     : [ 0.73564,0.00889,1.6456 ],
+                                                                "index"    : 9,
+                                                                "children" : [
+                                                                    {
+                                                                        "head"     : [ 0.73564,0.00889,1.6456 ],
+                                                                        "tail"     : [ 0.76306,0.00951,1.644 ],
+                                                                        "index"    : 10
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "head"     : [ -0.0183,-0.0684,1.6051 ],
+                                                "tail"     : [ -0.1694,0.0205,1.605 ],
+                                                "index"    : 11,
+                                                "children" : [
+                                                    {
+                                                        "head"     : [ -0.20949,0.0267,1.6477 ],
+                                                        "tail"     : [ -0.48184,0.008641,1.6425 ],
+                                                        "index"    : 12,
+                                                        "children" : [
+                                                            {
+                                                                "head"     : [ -0.48184,0.008641,1.6425 ],
+                                                                "tail"     : [ -0.73564,0.00889,1.6456 ],
+                                                                "index"    : 13,
+                                                                "children" : [
+                                                                    {
+                                                                        "head" : [ -0.73564,0.00889,1.6456 ],
+                                                                        "tail" : [ -0.76306,0.00951,1.644 ],
+                                                                        "index": 14
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "head"     : [ 0,-0.013,1.7197 ],
+                                                "tail"     : [ 0,-0.0247,1.7813 ],
+                                                "index"    : 5,
+                                                "children" : [
+                                                    {
+                                                        "head"     : [ 0,-0.0247,1.7813 ],
+                                                        "tail"     : [ 0,-0.0247,2 ],
+                                                        "index"    : 6
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

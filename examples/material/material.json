@@ -1,0 +1,13 @@
+{
+    "$schema": "../../material-schema.json",
+    "name": "Material",
+    "textures": [
+        {
+            "name": "Texture",
+            "path": "path/to/file.png",
+            "addressing": "repeat",
+            "filter": "linear"
+        }
+    ]
+    
+}

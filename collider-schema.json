@@ -1,0 +1,37 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Entity",
+    "type"         : "object",
+    "description"  : "G10 entity object definition",
+    "properties"   : {
+        "type"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "box",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the entity",
+            "enum" : [ "box", "sphere", "cone", "convex hull" ]
+        },
+        "dimensions" : {
+            "title": "dimensions",
+            "type" : "array",
+            "description": "Dimensions of the bounding box, when rotation is < 0, 0, 0 > and scale is < 1, 1, 1 >",
+            "uniqueItems" : true,
+            "minItems" : 3,
+            "maxItems" : 3,
+            "default" : [ 
+                1,
+                1,
+                1
+            ]
+        },
+        "convex hull path" : {
+            "title": "convex hull path",
+            "type" : "string",
+            "description": "The path to a convex hull in PLY format",
+            "default" : "path/to/file.ply"
+        }
+    },
+    "required"     : [ "type", "dimensions" ]
+}

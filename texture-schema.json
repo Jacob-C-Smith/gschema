@@ -1,0 +1,37 @@
+{
+    "$schema"      : "http://json-schema.org/schema",
+    "title"        : "G10 Texture",
+    "type"         : "object",
+    "description"  : "G10 texture object definition",
+    "properties"   : {
+        "name"     : {
+            "title"       : "name",
+            "type"        : "string",
+            "default"     : "Texture",
+            "minLength"   : 1,
+            "maxLength"   : 255,
+            "description" : "The name of the texture"
+        },
+        "path" : {
+            "title": "path",
+            "type" : "string",
+            "default" : "path/to/file.png",
+            "description": "File path to a PNG, QOI, Radiance HDR, Bitmap, or JPG image"
+        },
+        "filter" : {
+            "title" : "filter",
+            "description": "",
+            "type" : "string",
+            "default" : "linear",
+            "enum": [ "linear", "nearest" ]
+        },
+        "addressing" : {
+            "title": "addressing",
+            "description": "",
+            "type" : "string",
+            "default" : "repeat",
+            "enum": [ "repeat", "mirror repeat", "clamp edge", "clamp border", "mirror clamp edge" ]
+        }
+    },
+    "required"     : [ "name", "path" ]
+}

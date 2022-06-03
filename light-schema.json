@@ -12,6 +12,12 @@
             "maxLength"   : 255,
             "description" : "The name of the light"
         },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
         "location" : {
             "title"       : "location",
             "type"        : "array",

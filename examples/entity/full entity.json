@@ -1,0 +1,64 @@
+{
+    "$schema": "../../entity-schema.json",
+    "name" : "Entity",
+    "parts": [
+        {
+            "name": "Part",
+            "path": "path/to/file.ply",
+            "material": "G10 Missing Material"
+        }
+    ],
+    "materials": [
+        {
+            "name": "Material",
+            "textures": [
+                {
+                    
+                }
+            ]
+        }
+    ],
+    "shader": "G10/shaders/G10 PBR.json",
+    "transform": {
+        "location": [
+            0,
+            0,
+            0
+        ],
+        "rotation": [
+            90,
+            45,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ]
+    },
+    "rigidbody": {
+        "active": false,
+        "mass": 1
+    },
+    "rig": {
+        "name": "Rig",
+        "bone count" : 3,
+        "bones": [
+            {
+                "name": "Bone 1",
+                "index": 0,
+                "childern": [
+                    {
+                        "name": "Bone 2",
+                        "index": 1
+                    },
+                    {
+                        "name": "Bone 3",
+                        "index": 2
+                    }
+                ]
+            }
+        ],
+        "part name": "Part"
+    }
+}

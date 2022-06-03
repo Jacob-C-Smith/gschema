@@ -11,6 +11,58 @@
             "minLength"   : 1,
             "maxLength"   : 255,
             "description" : "The name of the camera"
+        },
+        "comment" : {
+            "title"       : "comment",
+            "type"        : "string",
+            "default"     : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "fov"      : { 
+            "title": "FOV",
+            "type" : "number",
+            "default" : 89.99,
+            "minimum": 1.0,
+            "maximum": 89.99,
+            "description": "The field of view in degrees"
+        },
+        "near" : {
+            
+            "title": "near clipping plane",
+            "type" : "number",
+            "default" : 0.01,
+            "minimum" : 0.001,
+            "maximum" : 100.0,
+            "description": "The near clipping plane of the camera"
+        },
+        "far"  : {
+            "title": "far clipping plane",
+            "type" : "number",
+            "default" : 89.99,
+            "minimum": 0.10,
+            "maximum": 1000.00,
+            "description": "The far clipping plane"
+        },
+        "target" : {
+            "title": "The position the camera will look at",
+            "type" : "array",
+            "default" : [ 1, 1, 1 ],
+            "minItems" : 3,
+            "maxItems": 3
+        },
+        "up" : {
+            "title": "The normalized up vector",
+            "type" : "array",
+            "default" : [ 0, 0, 1 ],
+            "minItems" : 3,
+            "maxItems": 3
+        },
+        "where" : {
+            "title": "The position of the cameara <x, y, z>",
+            "type" : "array",
+            "default" : [ 5, 5, 1 ],
+            "minItems" : 3,
+            "maxItems": 3
         }
     },
     "required"     : [ "name" ]
