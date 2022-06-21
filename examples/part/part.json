@@ -1,0 +1,8 @@
+{
+    "$schema": "../../part-schema.json",
+    "name": "Part",
+    "comment": "comment",
+    "material": "G10 Missing Material",
+    "path": "path/to/file.ply",
+    "shader": "G10 PBR"
+}

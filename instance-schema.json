@@ -24,7 +24,7 @@
             "description" : "Input is a named set of binds. Strings are read as file paths. Objects are read as input json objects. See input schema.",
             "oneOf"       : [
                                 { "type" : "string" },
-                                { "$ref" : "input-schema.json" }
+                                { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/input-schema.json" }
                             ],
             "default"     : "G10/input.json"
         },

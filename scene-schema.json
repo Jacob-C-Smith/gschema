@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema",
-    "title" : "G10 Input",
+    "title" : "G10 Scene",
     "type" : "object",
-    "description": "The G10 input defines",
+    "description": "The G10 scene contains objects",
     "properties": {
         "name" : {
             "title"       : "name",
@@ -26,10 +26,14 @@
             "items"       : {
                 "oneOf" : [
                     { "type" : "string" },
-                    { "$ref" : "entity-schema.json" }
+                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/entity-schema.json" }
                 ] 
             },
-            "default"     : [ ]
+            "default"     : [ 
+                { 
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/entity-schema.json"
+                }
+             ]
         },
         "cameras" : {
             "title"       : "cameras",
@@ -39,10 +43,14 @@
             "items"       : {
                 "oneOf" : [ 
                     { "type" : "string" },
-                    { "$ref" : "camera-schema.json" }
+                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/camera-schema.json" }
                 ] 
             },
-            "default"     : [ ]
+            "default"     : [
+                {
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/camera-schema.json"
+                }
+            ]
         },
         "lights" : {
             "title"       : "lights",
@@ -52,10 +60,14 @@
             "items"       : {
                 "oneOf" : [ 
                     { "type" : "string" },
-                    { "$ref" : "light-schema.json" }
+                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/light-schema.json" }
                 ] 
             },
-            "default"     : [ ]
+            "default"     : [
+                {
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/light-schema.json"
+                }
+            ]
         },
         "skybox" : {
             "title"       : "skybox",
@@ -63,9 +75,11 @@
             "description" : "The skybox used by the scene",
             "oneOf"       : [
                         { "type":"string" },
-                        { "$ref": "skybox-schema.json" }
+                        { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/skybox-schema.json" }
                       ],
-            "default"     : { }
+            "default"     : { 
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/skybox-schema.json"
+            }
         }        
     },
     "required" : [ "name" ]

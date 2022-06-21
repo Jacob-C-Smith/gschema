@@ -2,7 +2,7 @@
     "$schema"      : "http://json-schema.org/schema",
     "title"        : "G10 Rigid body",
     "type"         : "object",
-    "description"  : "G10 rigid body object definition",
+    "description"  : "G10 rigid body object",
     "properties"   : {
         "mass"     : {
             "title"       : "mass",
@@ -10,12 +10,12 @@
             "default"     : 1,
             "description" : "The mass of the object in kilograms."
         },
-        "acive" : { 
+        "active" : { 
             "title"       : "active",
             "type"        : "boolean",
             "default"     : false,
             "description" : "Does the object respond to forces?"
         }
     },
-    "required"     : [ "name" ]
+    "required"     : [ "active" ]
 }

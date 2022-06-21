@@ -2,7 +2,7 @@
     "$schema"      : "http://json-schema.org/schema",
     "title"        : "G10 Part",
     "type"         : "object",
-    "description"  : "G10 camera object definition",
+    "description"  : "G10 part object",
     "properties"   : {
         "name"     : {
             "title"       : "name",
@@ -25,21 +25,21 @@
             "description" : "The path to the part"
         },
         "shader"     : {
-            "title"       : "name",
+            "title"       : "shader",
             "type"        : [ "string", "object" ],
             "oneOf"       : [
                 { "type" : "string" },
-                { "$ref" : "shader-schema.json" }
+                { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/shader-schema.json" }
             ],
             "default"     : "G10 PBR",
-            "description" : "The of the shader to use while drawing the part"
+            "description" : "The shader to use while drawing the part"
         },
         "material"   : {
             "title"       : "material",
             "type"        : "string",
             "oneOf"       : [
                 { "type" : "string" },
-                { "$ref" : "material-schema.json" }
+                { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json" }
             ],
             "default"     : "G10 Missing Material",
             "description" : "The name of the material to use while shading the part"

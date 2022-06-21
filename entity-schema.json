@@ -26,7 +26,7 @@
             "items"       : {
                 "oneOf" : [ 
                     { "type" : "string" },
-                    { "$ref" : "material-schema.json" }
+                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json" }
                 ] 
             },
             "default" : [ ]
@@ -39,7 +39,7 @@
             "items": {
                 "oneOf" : [
                     { "type" : "string" },
-                    { "$ref": "part-schema.json" }
+                    { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json" }
                 ]
             },
             "default" : [ ]
@@ -51,7 +51,7 @@
             "uniqueItems": true,
             "oneOf" : [
                     { "type" : "string" },
-                    { "$ref": "shader-schema.json" }
+                    { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/shader-schema.json" }
             ],
             "default" : "G10/shaders/G10 PBR.json"
         },
@@ -62,43 +62,35 @@
             "uniqueItems": true,
             "oneOf" : [
                     { "type" : "string" },
-                    { "$ref": "transform-schema.json" }
+                    { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/transform-schema.json" }
             ],
             "default" : {
-                "location": [
-                    0,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    90.0,
-                    45.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/transform-schema.json"
             }
         },
-        "rigidbody" : {
-            "title": "rigidbody",
+        "rigid body" : {
+            "title": "rigid body",
             "type" :  "object",
             "description": "Specifies a rigidbody",
-            "uniqueItems": true,
             "oneOf" : [
                 { "type" : "string" },
-                { "$ref": "rigid-body-schema.json" }
+                { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rigid-body-schema.json" }
             ],
             "default" : {
-                "active" : false,
-                "mass"   : 1
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rigid-body-schema.json"
             }
         },
         "collider" : {
-
+            "title": "collider",
+            "type" : [ "object", "string" ],
+            "description": "Specifies a collider",
+            "oneOf" : [
+                { "type" : "string" },
+                { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/collider-schema.json" }
+            ],
+            "default" : {
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/collider-schema.json"
+            }
         },
         "rig" : {
             "title": "rig",
@@ -106,8 +98,11 @@
             "description": "Specifies a rig",
             "oneOf": [
                 {"type" : "string"},
-                {"$ref": "rig-schema.json"}
-            ]   
+                {"$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rig-schema.json"}
+            ],
+            "default" : {
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rig-schema.json"
+            }
         },
         "particle system" : {
 

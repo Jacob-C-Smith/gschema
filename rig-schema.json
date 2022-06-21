@@ -2,7 +2,7 @@
     "$schema"      : "http://json-schema.org/schema",
     "title"        : "G10 Rig",
     "type"         : "object",
-    "description"  : "G10 rig object definition",
+    "description"  : "G10 rig object",
     "properties"   : {
         "name"     : {
             "title"       : "name",
@@ -20,55 +20,52 @@
         },
         "part name" : {
             "title": "part name",
-            "type" : "array",
-            "description": "The name of the part to load",
-            "uniqueItems" : true,
-            "items"       : {
-                "oneOf" : [ 
-                    { "type" : "string" },
-                    { "$ref" : "." }
-                ] 
-            },
+            "type" : "string",
+            "description": "The name of the part",
             "default" : "Part"
         },
         "bones" : {
-            "title": "bone tree",
+            "title": "bones",
             "type" : "object",
             "description": "A tree of bones",
-            "uniqueItems": true,
-            "items": {
-                "oneOf" : [
-                    { "type" : "object" },
-                    { "$ref": "#/definitions/bone" }
-                ]
-            },
-            "default" : []
+            "oneOf" : [
+                { "$ref": "#/definitions/bone" }
+            ],
+            "default" : {
+                "name" : "Bone 0",
+                "index" : 0
+            }
         },
         "bone count" : {
-
-        },
-        "poses" : {
-
+            "title": "bone count",
+            "type" : "integer",
+            "description": "The number of bones in the rig",
+            "default" : 1,
+            "minimum": 1,
+            "maximum": 999
         }
     },
     "definitions" : {
         "bone" : {
             "type"       : "object",
+            "title"      : "Bone object",
+            "description": "Defines a bone",
             "properties" : {
                 "name"   : {
                     "title"       : "name",
                     "type"        : "string",
-                    "description" : "A bone"
+                    "description" : "The name of the bone",
+                    "default"     : "Bone"
                 },
                 "index"    : { 
                     "title"       : "index",
                     "type"        : "integer",
-                    "description" : "The index of the bone group",
+                    "description" : "The index of the bone group"
                 },
                 "childern" : {
-                    "title" : "name",
+                    "title" : "childern",
                     "type" : "array",
-                    "description": "A bone",
+                    "description": "A list of bones",
                     "uniqueItems": true,
                     "items": {
                         "oneOf": [
@@ -78,12 +75,14 @@
                             }
                         ]
                     },
-                    "default" : []
+                    "default" : [
+                        {
+                            "name" : "Bone",
+                            "index" : 0
+                        }
+                    ]
                 }
             }
-        },
-        "pose" : {
-            
         }
     }
 }

@@ -2,7 +2,7 @@
     "$schema"      : "http://json-schema.org/schema",
     "title"        : "G10 Texture",
     "type"         : "object",
-    "description"  : "G10 texture object definition",
+    "description"  : "G10 texture object",
     "properties"   : {
         "name"     : {
             "title"       : "name",
@@ -20,14 +20,14 @@
         },
         "filter" : {
             "title" : "filter",
-            "description": "",
+            "description": "Texture filtering mode",
             "type" : "string",
             "default" : "linear",
             "enum": [ "linear", "nearest" ]
         },
         "addressing" : {
             "title": "addressing",
-            "description": "",
+            "description": "Texture addressing mode",
             "type" : "string",
             "default" : "repeat",
             "enum": [ "repeat", "mirror repeat", "clamp edge", "clamp border", "mirror clamp edge" ]

@@ -7,7 +7,7 @@
         "name" : {
             "title"       : "name",
             "type"        : "string",
-            "default"     : "G10 input",
+            "default"     : "G10 Input",
             "minLength"   : 1,
             "maxLength"   : 255,
             "description" : "The name of the input set"

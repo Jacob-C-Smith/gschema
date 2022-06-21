@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/schema",
     "title" : "G10 Shader",
     "type" : "object",
-    "description": "The G10 shader defines",
+    "description": "G10 shader",
     "properties": {
         "name" : {
             "title"       : "name",
@@ -18,55 +18,94 @@
             "default"     : "comment",
             "description" : "A comment that is ignored by G10"
         },
-        "entities" : {
+        "vertex shader path" : {
+            "title": "vertex shader path",
+            "type" : "string",
+            "default": "path/to/vertex shader.spv",
+            "description": "Path to vertex shader file"
+        },
+        "tessellation control shader path" : {
+            "title": "tessellation control shader path",
+            "type" : "string",
+            "default": "path/to/tessellation control shader.spv",
+            "description": "Path to tessellation control shader file"
+        },
+        "tessellation evaluation shader path" : {
+            "title": "tessellation evaluation shader path",
+            "type" : "string",
+            "default": "path/to/tessellation evaluation shader.spv",
+            "description": "Path to tessellation evaluation shader file"
+        },
+        "geometry shader path" : {
+            "title": "geometry shader path",
+            "type" : "string",
+            "default": "path/to/geometry shader.spv",
+            "description": "Path to geometry shader file"
+        },
+        "fragment shader path" : {
+            "title": "fragment shader path",
+            "type" : "string",
+            "default": "path/to/fragment shader.spv",
+            "description": "Path to fragment shader file"
+        },
+        "compute shader path" : {
+            "title": "compute shader path",
+            "type" : "string",
+            "default": "path/to/compute shader.spv",
+            "description": "Path to compute shader file"
+        },
+        "ray generation shader path" : {
+            "title": "ray generation shader path",
+            "type" : "string",
+            "default": "path/to/ray generation shader.spv",
+            "description": "Path to ray generation shader file"
+        },
+        "uniforms" : {
             "title"       : "entities",
             "type"        : "array",
             "description" : "A list of entities",
             "uniqueItems" : true,
-            "items"       : {
-                "oneOf" : [
-                    { "type" : "string" },
-                    { "$ref" : "entity-schema.json" }
-                ] 
-            },
-            "default"     : [ ]
-        },
-        "cameras" : {
-            "title"       : "cameras",
-            "type"        : "array",
-            "description" : "A list of cameras",
-            "uniqueItems" : true,
-            "items"       : {
-                "oneOf" : [ 
-                    { "type" : "string" },
-                    { "$ref" : "camera-schema.json" }
-                ] 
-            },
-            "default"     : [ ]
-        },
-        "lights" : {
-            "title"       : "lights",
-            "type"        : "array",
-            "description" : "A list of lights",
-            "uniqueItems" : true,
-            "items"       : {
-                "oneOf" : [ 
-                    { "type" : "string" },
-                    { "$ref" : "light-schema.json" }
-                ] 
-            },
-            "default"     : [ ]
-        },
-        "skybox" : {
-            "title"       : "skybox",
-            "type"        : [ "string", "object" ],
-            "description" : "The skybox used by the scene",
-            "oneOf"       : [
-                        { "type":"string" },
-                        { "$ref": "skybox-schema.json" }
-                      ],
-            "default"     : { }
-        }        
+            "items"       : { "$ref": "#/$defs/uniform" },
+            "default"     : [
+                {
+
+                }
+            ]
+        }
     },
-    "required" : [ "name" ]
+    "required" : [ "name" ],
+    "$defs" : {
+        "uniform" : {
+            "type" : "object",
+            "required": [ "name", "type" ],
+            "properties":{
+                "name" : {
+                    "title"       : "name",
+                    "type"        : "string",
+                    "description" : "The name of the uniform",
+                    "default"     : "",
+                    "minLength"   : 1,
+                    "maxLength"   : 255
+                },
+                "type":{
+                    "title"       : "type",
+                    "type"        : "string",
+
+                    "description" : "The type of uniform",
+                    "default"     : [  ],
+                    "items"       : {
+                        "type" : "string"
+                    }
+                },
+                "uniform name" : {
+                    "title"       : "uniform name",
+                    "type"        : "string",
+                    "description" : "The name of the uniform, as it appears in the shader",
+                    "default"     : "",
+                    "minLength"   : 1,
+                    "maxLength"   : 255
+                }
+            }
+        }
+    }
 }

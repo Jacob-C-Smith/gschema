@@ -3,7 +3,10 @@
     "name" : "Entity",
     "parts": [
         {
+            "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json",
             "name": "Part",
+            "comment": "comment",
+            "shader": "G10 PBR",
             "path": "path/to/file.ply",
             "material": "G10 Missing Material"
         }
@@ -13,7 +16,9 @@
             "name": "Material",
             "textures": [
                 {
-                    
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/texture-schema.json",
+                    "name": "albedo",
+                    "path": "path/to/albedo.png"
                 }
             ]
         }
@@ -38,6 +43,20 @@
     },
     "rigidbody": {
         "active": false,
+        "mass": 1
+    },
+    "collider": {
+        "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/collider-schema.json",
+        "type": "box",
+        "dimensions": [
+            1,
+            1,
+            1
+        ]
+    },
+    "rigid body": {
+        "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rigid-body-schema.json",
+        "acive": false,
         "mass": 1
     },
     "rig": {

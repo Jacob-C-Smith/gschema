@@ -1,3 +1,58 @@
 {
+    "$schema": "../../scene-schema.json",
+    "name": "G10 Scene",
+    "comment": "comment",
+    "entities": [
+        {
+            "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/entity-schema.json",
+            "name": "Entity",
+            ""
+        }
+        
+    ],
+    "cameras": [
+        {
+            "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/camera-schema.json",
+            "name": "Camera",
+            "fov": 89.99,
+            "near": 0.01,
+            "far": 89.99,
+            "front": [
+                1,
+                1,
+                1
+            ],
+            "up": [
+                0,
+                0,
+                1
+            ],
+            "location": [
+                5,
+                5,
+                1
+            ]
+        }
+    ],
+    "lights": [
+        {
+            "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/light-schema.json",
+            "name": "Light",
+            "location": [
+                1,
+                1,
+                1
+            ],
+            "color": [
+                60,
+                60,
+                60
+            ]
+        }
+    ],
+    "skybox": {
+        "name": "G10 Skybox",
+        "environment": "path/to/environment.hdr"
+    }
     
 }

@@ -1,5 +1,12 @@
 {
-    "$schema": "../../texture-schema.json",
-    "name": "Texture",
-    "path": "path/to/file.png"
+    "$schema": "../../material-schema.json",
+    "name": "Material",
+    "comment": "comment",
+    "textures": [
+        {
+            "$schema": "../../texture-schema.json",
+            "name": "Texture",
+            "path": "path/to/file.png"
+        }
+    ]
 }

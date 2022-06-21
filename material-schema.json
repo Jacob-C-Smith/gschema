@@ -2,7 +2,7 @@
     "$schema"      : "http://json-schema.org/schema",
     "title"        : "G10 Material",
     "type"         : "object",
-    "description"  : "G10 material object definition",
+    "description"  : "G10 material object",
     "properties"   : {
         "name"     : {
             "title"       : "name",
@@ -10,7 +10,7 @@
             "default"     : "Material",
             "minLength"   : 1,
             "maxLength"   : 255,
-            "description" : "The name of the camera"
+            "description" : "The name of the material"
         },
         "comment" : {
             "title"       : "comment",
@@ -23,7 +23,14 @@
             "description": "A list of texture objects used by the material",
             "type" : "array",
             "uniqueItems" : true,
-            "items"       : { "$ref": "texture-schema.json" }
+            "items"       : { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/texture-schema.json" },
+            "default" : [
+                {
+                    "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/texture-schema.json",
+                    "name": "Texture",
+                    "path": "path/to/file.png"
+                }
+            ]
         }
     },
     "required"     : [ "name" ]

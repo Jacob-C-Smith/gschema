@@ -1,23 +1,22 @@
 {
     "$schema"      : "http://json-schema.org/schema",
-    "title"        : "G10 Entity",
+    "title"        : "G10 Collider",
     "type"         : "object",
-    "description"  : "G10 entity object definition",
+    "description"  : "G10 Collider object",
     "properties"   : {
         "type"     : {
-            "title"       : "name",
+            "title"       : "type",
             "type"        : "string",
             "default"     : "box",
             "minLength"   : 1,
             "maxLength"   : 255,
-            "description" : "The name of the entity",
+            "description" : "The shape of the collider",
             "enum" : [ "box", "sphere", "cone", "convex hull" ]
         },
         "dimensions" : {
             "title": "dimensions",
             "type" : "array",
             "description": "Dimensions of the bounding box, when rotation is < 0, 0, 0 > and scale is < 1, 1, 1 >",
-            "uniqueItems" : true,
             "minItems" : 3,
             "maxItems" : 3,
             "default" : [ 

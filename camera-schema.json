@@ -24,45 +24,48 @@
             "default" : 89.99,
             "minimum": 1.0,
             "maximum": 89.99,
-            "description": "The field of view in degrees"
+            "description": "The field of view, in degrees"
         },
         "near" : {
             
-            "title": "near clipping plane",
+            "title": "near",
             "type" : "number",
             "default" : 0.01,
             "minimum" : 0.001,
             "maximum" : 100.0,
-            "description": "The near clipping plane of the camera"
+            "description": "The near clipping plane distance"
         },
         "far"  : {
-            "title": "far clipping plane",
+            "title": "far",
             "type" : "number",
             "default" : 89.99,
             "minimum": 0.10,
             "maximum": 1000.00,
-            "description": "The far clipping plane"
+            "description": "The far clipping plane distance"
         },
-        "target" : {
-            "title": "The position the camera will look at",
+        "front" : {
+            "title": "front",
             "type" : "array",
             "default" : [ 1, 1, 1 ],
             "minItems" : 3,
-            "maxItems": 3
+            "maxItems": 3,
+            "description": "The front vector of the camera"
         },
         "up" : {
-            "title": "The normalized up vector",
+            "title": "up",
             "type" : "array",
             "default" : [ 0, 0, 1 ],
             "minItems" : 3,
-            "maxItems": 3
+            "maxItems": 3,
+            "description": "The normalized up vector of the camera"
         },
-        "where" : {
-            "title": "The position of the cameara <x, y, z>",
+        "location" : {
+            "title": "location",
             "type" : "array",
             "default" : [ 5, 5, 1 ],
             "minItems" : 3,
-            "maxItems": 3
+            "maxItems": 3,
+            "description": "The location of the camera"
         }
     },
     "required"     : [ "name" ]
