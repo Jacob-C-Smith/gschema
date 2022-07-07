@@ -29,7 +29,11 @@
                     { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json" }
                 ] 
             },
-            "default" : [ ]
+            "default" : [
+                {
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json"
+                }
+            ]
         },
         "parts" : {
             "title": "parts",
@@ -42,7 +46,11 @@
                     { "$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json" }
                 ]
             },
-            "default" : [ ]
+            "default" : [
+                {
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json"
+                }
+            ]
         },
         "shader" : {
             "title": "shader",

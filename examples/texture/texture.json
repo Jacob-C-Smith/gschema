@@ -1,12 +1,7 @@
 {
-    "$schema": "../../material-schema.json",
-    "name": "Material",
-    "comment": "comment",
-    "textures": [
-        {
-            "$schema": "../../texture-schema.json",
-            "name": "Texture",
-            "path": "path/to/file.png"
-        }
-    ]
+    "$schema": "../../texture-schema.json",
+    "name": "Texture",
+    "path": "path/to/file.png",
+    "addressing": "repeat",
+    "filter": "linear"
 }

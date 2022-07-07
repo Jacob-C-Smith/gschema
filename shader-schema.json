@@ -7,7 +7,7 @@
         "name" : {
             "title"       : "name",
             "type"        : "string",
-            "default"     : "G10 Scene",
+            "default"     : "G10 Shader",
             "minLength"   : 1,
             "maxLength"   : 255,
             "description" : "The name of the shader"
@@ -18,11 +18,54 @@
             "default"     : "comment",
             "description" : "A comment that is ignored by G10"
         },
-        "vertex shader path" : {
-            "title": "vertex shader path",
-            "type" : "string",
-            "default": "path/to/vertex shader.spv",
-            "description": "Path to vertex shader file"
+        "vertex shader" : {
+            "title" : "vertex shader",
+            "description": "Describes the vertex shader, its inputs, outputs, and uniforms",
+            "properties":{
+                "path" : {
+                    "title": "vertex shader path",
+                    "type" : "string",
+                    "default": "path/to/vertex shader.spv",
+                    "description": "Path to vertex shader file"
+                },
+                "in" : {
+                    "title"       : "vertex shader inputs",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader input" }
+                },
+                "out" : {
+                    "title"       : "vertex shader outputs",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader output" }
+                },
+                "uniform" : {
+                    "title"       : "vertex shader uniforms",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader uniform" }
+                },
+                "push constant" : {
+                    "title": "push constant",
+                    "description": "push constant",
+                    "type" : "object",
+                    "properties": {
+                        "name" : {
+                            "title": "push constant name",
+                            "description": "The push constant name",
+                            "type" : "string"
+                        },
+                        "data" : {
+                            "title" : "data",
+                            "type" : "array",
+                            "description" : "uniform structure data",
+                            "uniqueItems" : true,
+                            "items":  { "$ref": "#/$defs/shader atom"}
+                        }
+                    }
+                }
+            }
         },
         "tessellation control shader path" : {
             "title": "tessellation control shader path",
@@ -43,10 +86,53 @@
             "description": "Path to geometry shader file"
         },
         "fragment shader path" : {
-            "title": "fragment shader path",
-            "type" : "string",
-            "default": "path/to/fragment shader.spv",
-            "description": "Path to fragment shader file"
+            "title" : "fragment shader",
+            "description": "Describes the fragment shader, its inputs, outputs, and uniforms",
+            "properties":{
+                "path" : {
+                    "title": "fragment shader path",
+                    "type" : "string",
+                    "default": "path/to/fragment shader.spv",
+                    "description": "Path to fragment shader file"
+                },
+                "in" : {
+                    "title"       : "fragment shader inputs",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader input" }
+                },
+                "out" : {
+                    "title"       : "fragment shader outputs",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader output" }
+                },
+                "uniform" : {
+                    "title"       : "fragment shader uniforms",
+                    "type"        : "array",
+                    "uniqueItems" : true,
+                    "items"       : { "$ref": "#/$defs/shader uniform" }
+                },
+                "push constant" : {
+                    "title": "fragment shader push constant",
+                    "description": "push constant",
+                    "type" : "object",
+                    "properties": {
+                        "name" : {
+                            "title": "push constant name",
+                            "description": "The push constant name",
+                            "type" : "string"
+                        },
+                        "data" : {
+                            "title" : "data",
+                            "type" : "array",
+                            "description" : "uniform structure data",
+                            "uniqueItems" : true,
+                            "items":  { "$ref": "#/$defs/shader atom"}
+                        }
+                    }
+                }
+            }
         },
         "compute shader path" : {
             "title": "compute shader path",
@@ -59,53 +145,107 @@
             "type" : "string",
             "default": "path/to/ray generation shader.spv",
             "description": "Path to ray generation shader file"
-        },
-        "uniforms" : {
-            "title"       : "entities",
-            "type"        : "array",
-            "description" : "A list of entities",
-            "uniqueItems" : true,
-            "items"       : { "$ref": "#/$defs/uniform" },
-            "default"     : [
-                {
-
-                }
-            ]
         }
     },
-    "required" : [ "name" ],
     "$defs" : {
-        "uniform" : {
+        "shader input" : {
+            "title" : "shader input",
+            "description" : "shader input",
             "type" : "object",
-            "required": [ "name", "type" ],
-            "properties":{
+            "properties" : {
                 "name" : {
-                    "title"       : "name",
-                    "type"        : "string",
-                    "description" : "The name of the uniform",
-                    "default"     : "",
-                    "minLength"   : 1,
-                    "maxLength"   : 255
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "the name of the input vertex group"
                 },
-                "type":{
-                    "title"       : "type",
-                    "type"        : "string",
-
-                    "description" : "The type of uniform",
-                    "default"     : [  ],
-                    "items"       : {
-                        "type" : "string"
-                    }
+                "index":{
+                    "title" : "index",
+                    "type" : "number",
+                    "description" : "the index of the input vertex group"
                 },
-                "uniform name" : {
-                    "title"       : "uniform name",
-                    "type"        : "string",
-                    "description" : "The name of the uniform, as it appears in the shader",
-                    "default"     : "",
-                    "minLength"   : 1,
-                    "maxLength"   : 255
+                "type" : {
+                    "title" : "the type of the input",
+                    "type" : "string",
+                    "description" : "The type of the input vertex group",
+                    "enum" : [ "float", "int", "vec2", "vec3", "vec4", "ivec2", "ivec3", "ivec4", "mat4", "sampler 2D", "mat4 list", "sampler cube" ]
+                }
+            }
+        },
+        "shader output" : {
+            "title" : "shader output",
+            "description" : "shader output",
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "the name of the output vertex group"
+                },
+                "index":{
+                    "title" : "index",
+                    "type" : "number",
+                    "description" : "the index of the output vertex group"
+                },
+                "type" : {
+                    "title" : "the type of the output",
+                    "type" : "string",
+                    "description" : "The type of the output vertex group",
+                    "enum" : [ "float", "int", "vec2", "vec3", "vec4", "ivec2", "ivec3", "ivec4", "mat4", "sampler 2D", "mat4 list", "sampler cube" ]
+                }
+            }
+        },
+        "shader atom" : { 
+            "type" : "object",
+            "title" : "uniform",
+            "properties" : {
+                "name" : {
+                    "title" : "name",
+                    "description" : "name",
+                    "type" : "string"
+                },
+                "type" : {
+                    "title" : "the type of the uniform",
+                    "type" : "string",
+                    "description" : "The type of the uniform vertex group",
+                    "enum" : [ "struct", "float", "int", "vec2", "vec3", "vec4", "ivec2", "ivec3", "ivec4", "mat4", "sampler 2D", "mat4 list", "sampler cube" ]
+                }
+            }
+        },
+        "shader uniform" : {
+            "title" : "shader uniform",
+            "description" : "shader uniform",
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "the name of the uniform"
+                },
+                "set":{
+                    "title" : "set",
+                    "type" : "number",
+                    "description" : "the set of the uniform"
+                },
+                "binding":{
+                    "title" : "binding",
+                    "type" : "number",
+                    "description" : "the binding of the uniform"
+                },
+                "type" : {
+                    "title" : "the type of the uniform",
+                    "type" : "string",
+                    "description" : "The type of the uniform vertex group",
+                    "enum" : [ "struct", "float", "int", "vec2", "vec3", "vec4", "ivec2", "ivec3", "ivec4", "mat4", "sampler 2D", "mat4 list", "sampler cube" ]
+                },
+                "data" : {
+                    "title" : "data",
+                    "type" : "array",
+                    "description" : "uniform structure data",
+                    "uniqueItems" : true,
+                    "items":  { "$ref": "#/$defs/shader atom"}
                 }
             }
         }
-    }
+    },
+    "required" : [ "name", "vertex shader" ]
 }

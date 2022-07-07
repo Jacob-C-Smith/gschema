@@ -62,8 +62,8 @@
                     "type"        : "integer",
                     "description" : "The index of the bone group"
                 },
-                "childern" : {
-                    "title" : "childern",
+                "children" : {
+                    "title" : "children",
                     "type" : "array",
                     "description": "A list of bones",
                     "uniqueItems": true,
