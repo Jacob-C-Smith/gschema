@@ -1,0 +1,12 @@
+{
+    "$schema"  : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/light-schema.json",
+    "name"     : "Point light",
+    "type"     : "area",
+    "color"    : [ 1, 1, 1 ],
+    "location" : [ 1, 1, 1 ],
+    "intensity": 60,
+    "falloff"  : 2,
+    "direction": [ 1, 0, 0 ],
+    "length"   : 1,
+    "radius"   : 2
+}

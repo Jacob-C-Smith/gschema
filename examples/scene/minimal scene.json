@@ -1,4 +1,4 @@
 {
-    "$schema"  : "../../scene schema.json",
+    "$schema"  : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/scene schema.json",
     "name": "G10 Scene"
 }

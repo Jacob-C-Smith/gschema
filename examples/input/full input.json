@@ -1,5 +1,5 @@
 {
-    "$schema" : "../../input schema.json",
+    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/input schema.json",
     "name"    : "G10 instance",
     "binds"   : [
         {

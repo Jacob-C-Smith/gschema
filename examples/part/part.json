@@ -1,5 +1,5 @@
 {
-    "$schema": "../../part-schema.json",
+    "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json",
     "name": "Part",
     "comment": "comment",
     "material": "G10 Missing Material",

@@ -1,5 +1,5 @@
 {
-    "$schema" : "../../rig-schema.json",
+    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/rig-schema.json",
     "name"    : "Rig",
     "bones"   : [
         {

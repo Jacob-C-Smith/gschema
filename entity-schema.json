@@ -18,23 +18,6 @@
             "default"     : "comment",
             "description" : "A comment that is ignored by G10"
         },
-        "materials" : {
-            "title": "materials",
-            "type" : "array",
-            "description": "A list of materials",
-            "uniqueItems" : true,
-            "items"       : {
-                "oneOf" : [ 
-                    { "type" : "string" },
-                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json" }
-                ] 
-            },
-            "default" : [
-                {
-                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json"
-                }
-            ]
-        },
         "parts" : {
             "title": "parts",
             "type" : "array",
@@ -49,6 +32,23 @@
             "default" : [
                 {
                     "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/part-schema.json"
+                }
+            ]
+        },
+        "materials" : {
+            "title": "materials",
+            "type" : "array",
+            "description": "A list of materials",
+            "uniqueItems" : true,
+            "items"       : {
+                "oneOf" : [ 
+                    { "type" : "string" },
+                    { "$ref" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json" }
+                ] 
+            },
+            "default" : [
+                {
+                    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/material-schema.json"
                 }
             ]
         },
@@ -98,6 +98,18 @@
             ],
             "default" : {
                 "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/collider-schema.json"
+            }
+        },
+        "ai" : {
+            "title": "AI",
+            "type" : [ "object", "string" ],
+            "description": "Specifies an FSA",
+            "oneOf": [
+                {"type" : "string"},
+                {"$ref": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/ai-schema.json"}
+            ],
+            "default" : {
+                "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/ai-schema.json"
             }
         },
         "rig" : {

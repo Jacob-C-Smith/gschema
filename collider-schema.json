@@ -13,16 +13,28 @@
             "description" : "The shape of the collider",
             "enum" : [ "box", "sphere", "cone", "convex hull" ]
         },
-        "dimensions" : {
-            "title": "dimensions",
+        "max" : {
+            "title": "max",
             "type" : "array",
-            "description": "Dimensions of the bounding box, when rotation is < 0, 0, 0 > and scale is < 1, 1, 1 >",
+            "description": "Max dimensions of the bounding box, when location is < 0, 0, 0 >, rotation is < 0, 0, 0 >, and scale is < 1, 1, 1 >",
             "minItems" : 3,
             "maxItems" : 3,
             "default" : [ 
                 1,
                 1,
                 1
+            ]
+        },
+        "min" : {
+            "title": "min",
+            "type" : "array",
+            "description": "Min dimensions of the bounding box, when location is < 0, 0, 0 >, rotation is < 0, 0, 0 >, and scale is < 1, 1, 1 >",
+            "minItems" : 3,
+            "maxItems" : 3,
+            "default" : [ 
+                -1,
+                -1,
+                -1
             ]
         },
         "convex hull path" : {
