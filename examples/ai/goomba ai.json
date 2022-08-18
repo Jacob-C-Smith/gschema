@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/ai-schema.json",
-    "name": "AI",
+    "name": "Goomba AI",
     "states": [
-        "running left",
-        "attack"
+        "RUN LEFT",
+        "ATTACK"
     ],
-    "initial state": "running left"
+    "initial state": "RUN LEFT"
 }
