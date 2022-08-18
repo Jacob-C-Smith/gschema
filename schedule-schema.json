@@ -1,0 +1,98 @@
+{
+    "$schema"     : "http://json-schema.org/schema",
+    "title"       : "G10 Schedule Object",
+    "description" : "",
+    "properties": {
+        "name"        : {
+            "title"       : "Name",
+            "description" : "The name of the schedule",
+            "type"        : "string",
+            "default"     : "Schedule"
+        },
+        "main thread" : {
+            "title"       : "Main thread",
+            "description" : "The main thread of the schedule",
+            "type"        : "string",
+            "default"     : "Main thread"
+        },
+        "repeat"      : {
+            "title"       : "Repeat",
+            "description" : "Repeat the schedule?",
+            "type"        : "boolean",
+            "default"     : false
+        },
+        "threads"     :  {
+            "title"       : "Threads",
+            "description" : "List of threads",
+            "type"        : "array",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "#/$defs/thread" }
+        }
+    },
+    "$defs" : {
+        "task" : {
+            "type" : "object",  
+            "required": [ "task" ],
+            "properties":{
+                "task" : {
+                    "title"       : "Task",
+                    "description" : "The name of the task",
+                    "type" : "string",
+                    "enum" : [
+                        "Input",
+                        "UI",
+                        "AI",
+                        "Pre AI",
+                        "Resolve Collisions",
+                        "Update Forces",
+                        "Move Objects",
+                        "Animation",
+                        "Render",
+                        "Load Entity",
+                        "Load Light Probe",
+                        "Copy State",
+                        "Server Recieve",
+                        "Server Send",
+                        "Audio"
+                    ]
+                },
+                "wait thread" : {
+                    "title" : "wait thread",
+                    "description" : "The thread to wait on",
+                    "type" : "string"
+                },
+                "wait task" : {
+                    "title" : "wait task",
+                    "description" : "The task to wait on",
+                    "type" : "string"
+                }
+            }
+        },
+        "thread" : {
+            "title": "Thread",
+            "description": "",
+            "type" : "object",
+            "properties": {
+                "name" : {
+                    "title": "Name",
+                    "description": "The name of the thread",
+                    "type" : "string"
+                },
+                "description" : {
+                    "title": "Descripton",
+                    "description": "The descripton of the thread",
+                    "type" : "string"
+                },
+                "tasks" : {
+                    "title": "Tasks",
+                    "description": "A list of tasks",
+                    "type" : "array",
+                    "uniqueItems": true,
+                    "items": [
+                        { "$ref" : "#/$defs/task" }
+                    ]
+                }
+            }
+        }
+    }  
+}

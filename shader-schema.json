@@ -1,9 +1,9 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "title" : "G10 Shader",
-    "type" : "object",
-    "description": "G10 shader",
-    "properties": {
+    "$schema"     : "http://json-schema.org/schema",
+    "title"       : "G10 Shader",
+    "type"        : "object",
+    "description" : "G10 shader",
+    "properties"  : {
         "name" : {
             "title"       : "name",
             "type"        : "string",
@@ -18,54 +18,17 @@
             "default"     : "comment",
             "description" : "A comment that is ignored by G10"
         },
-        "vertex shader" : {
-            "title" : "vertex shader",
-            "description": "Describes the vertex shader, its inputs, outputs, and uniforms",
-            "properties":{
-                "path" : {
-                    "title": "vertex shader path",
-                    "type" : "string",
-                    "default": "path/to/vertex shader.spv",
-                    "description": "Path to vertex shader file"
-                },
-                "in" : {
-                    "title"       : "vertex shader inputs",
-                    "type"        : "array",
-                    "uniqueItems" : true,
-                    "items"       : { "$ref": "#/$defs/shader input" }
-                },
-                "out" : {
-                    "title"       : "vertex shader outputs",
-                    "type"        : "array",
-                    "uniqueItems" : true,
-                    "items"       : { "$ref": "#/$defs/shader output" }
-                },
-                "uniform" : {
-                    "title"       : "vertex shader uniforms",
-                    "type"        : "array",
-                    "uniqueItems" : true,
-                    "items"       : { "$ref": "#/$defs/shader uniform" }
-                },
-                "push constant" : {
-                    "title": "push constant",
-                    "description": "push constant",
-                    "type" : "object",
-                    "properties": {
-                        "name" : {
-                            "title": "push constant name",
-                            "description": "The push constant name",
-                            "type" : "string"
-                        },
-                        "data" : {
-                            "title" : "data",
-                            "type" : "array",
-                            "description" : "uniform structure data",
-                            "uniqueItems" : true,
-                            "items":  { "$ref": "#/$defs/shader atom"}
-                        }
-                    }
-                }
-            }
+        "in" : {
+            "title"       : "vertex shader inputs",
+            "type"        : "array",
+            "uniqueItems" : true,
+            "items"       : { "$ref": "#/$defs/shader input" }
+        },
+        "vertex shader path" : {
+            "title"       : "vertex shader path",
+            "type"        : "string",
+            "default"     : "path/to/vertex shader.spv",
+            "description" : "Path to vertex shader file"
         },
         "tessellation control shader path" : {
             "title": "tessellation control shader path",
@@ -147,7 +110,7 @@
             "description": "Path to ray generation shader file"
         }
     },
-    "$defs" : {
+    "$defs"       : {
         "shader input" : {
             "title" : "shader input",
             "description" : "shader input",
@@ -245,7 +208,13 @@
                     "items":  { "$ref": "#/$defs/shader atom"}
                 }
             }
+        },
+        "shader set" : {
+
+        },
+        "shader descriptor" : {
+            
         }
     },
-    "required" : [ "name", "vertex shader" ]
+    "required"    : [ "name", "vertex shader" ]
 }

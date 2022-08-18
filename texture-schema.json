@@ -4,7 +4,7 @@
     "type"         : "object",
     "description"  : "G10 texture object",
     "properties"   : {
-        "name"     : {
+        "name"       : {
             "title"       : "name",
             "type"        : "string",
             "default"     : "Texture",
@@ -12,25 +12,25 @@
             "maxLength"   : 255,
             "description" : "The name of the texture"
         },
-        "path" : {
-            "title": "path",
-            "type" : "string",
-            "default" : "path/to/file.png",
-            "description": "File path to a PNG, QOI, Radiance HDR, Bitmap, or JPG image"
+        "path"       : {
+            "title"       : "path",
+            "type"        : "string",
+            "default"     : "path/to/file.png",
+            "description" : "File path to a PNG, QOI, Radiance HDR, Bitmap, or JPG image"
         },
-        "filter" : {
-            "title" : "filter",
-            "description": "Texture filtering mode",
-            "type" : "string",
-            "default" : "linear",
-            "enum": [ "linear", "nearest" ]
+        "filter"     : {
+            "title"       : "filter",
+            "description" : "Texture filtering mode",
+            "type"        : "string",
+            "default"     : "linear",
+            "enum"        : [ "linear", "nearest" ]
         },
         "addressing" : {
-            "title": "addressing",
-            "description": "Texture addressing mode",
-            "type" : "string",
-            "default" : "repeat",
-            "enum": [ "repeat", "mirror repeat", "clamp edge", "clamp border", "mirror clamp edge" ]
+            "title"       : "addressing",
+            "description" : "Texture addressing mode",
+            "type"        : "string",
+            "default"     : "repeat",
+            "enum"        : [ "repeat", "mirror repeat", "clamp edge", "clamp border", "mirror clamp edge" ]
         }
     },
     "required"     : [ "name", "path" ]
