@@ -44,5 +44,5 @@
             "default" : "path/to/file.ply"
         }
     },
-    "required"     : [ "type", "dimensions" ]
+    "required"     : [ "type", "min", "max" ]
 }

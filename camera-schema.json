@@ -31,16 +31,16 @@
             "title": "near",
             "type" : "number",
             "default" : 0.01,
-            "minimum" : 0.001,
-            "maximum" : 100.0,
+            "minimum" : 0.000000001,
+            "maximum" : 100000000.0,
             "description": "The near clipping plane distance"
         },
         "far"  : {
             "title": "far",
             "type" : "number",
-            "default" : 89.99,
-            "minimum": 0.10,
-            "maximum": 1000.00,
+            "default" : 100.00,
+            "minimum": 0.000000001,
+            "maximum": 100000000.0,
             "description": "The far clipping plane distance"
         },
         "front" : {

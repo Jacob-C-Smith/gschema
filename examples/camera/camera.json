@@ -1,21 +1,21 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/camera-schema.json",
-    "name": "Camera",
-    "comment": "comment",
-    "fov": 89.99,
-    "near": 0.01,
-    "far": 89.99,
-    "target": [
+    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/camera-schema.json",
+    "name"    : "Camera",
+    "comment" : "comment",
+    "fov"     : 89.99,
+    "near"    :   0.01,
+    "far"     : 100.0,
+    "target"  : [
         1,
         1,
         1
     ],
-    "up": [
+    "up"      : [
         0,
         0,
         1
     ],
-    "where": [
+    "where"   : [
         5,
         5,
         1
