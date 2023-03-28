@@ -1,0 +1,7 @@
+{
+    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/sound-schema.json",
+    "name" : "dink",
+    "loudness": {
+        "volume": 50
+    }
+}
