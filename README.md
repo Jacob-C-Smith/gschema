@@ -20,4 +20,5 @@ Defines schemas for G10 JSON objects. Includes many example files
 | Light           |    ✓    | https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/light-schema.json              | 
 | Skybox          |    ✓    | https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/skybox-schema.json             | 
 | Input           |    ✓    | https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/input-schema.json              | 
+| Sound           |    ✗    | https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/sound-schema.json              | 
 | Server          |    ✗    | https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/server-schema.json             | 
