@@ -1,5 +1,32 @@
 {
 
-    "$schema" : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/instance-schema.json",
-    "name": "G10 instance"
+    "$schema" : "../../instance-schema.json",
+    "name": "G10 instance",
+    "schedules": [
+        {
+            "name": "Schedule",
+            "threads": [
+                {
+                    "name" : "asdf",
+                    "tasks" : [
+                        {
+                            
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "window": {
+        "title": "G10",
+        "height": 600,
+        "width": 800,
+        "fullscreen": false
+    },
+    "cache": {
+        "ai count": 16,
+        "material count": 128,
+        "part count": 128,
+        "shader count": 32
+    }
 }
