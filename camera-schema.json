@@ -1,72 +1,74 @@
 {
-    "$schema"      : "http://json-schema.org/schema",
-    "title"        : "G10 Camera",
-    "type"         : "object",
-    "description"  : "G10 camera object definition",
-    "properties"   : {
-        "name"     : {
-            "title"       : "name",
-            "type"        : "string",
-            "default"     : "Camera",
-            "minLength"   : 1,
-            "maxLength"   : 255,
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "camera",
+    "type" : "object",
+    "description" : "Describes a camera",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "camera",
+            "minLength" : 1,
+            "maxLength" : 255,
             "description" : "The name of the camera"
         },
-        "comment" : {
-            "title"       : "comment",
-            "type"        : "string",
-            "default"     : "comment",
-            "description" : "A comment that is ignored by G10"
-        },
-        "fov"      : { 
-            "title": "FOV",
+        "fov" :
+        { 
+            "title" : "fov",
             "type" : "number",
             "default" : 89.99,
-            "minimum": 1.0,
-            "maximum": 89.99,
-            "description": "The field of view, in degrees"
+            "minimum" : 1.0,
+            "maximum" : 89.99,
+            "description" : "The field of view, in degrees"
         },
-        "near" : {
+        "near" :
+        {
             
-            "title": "near",
+            "title" : "near",
             "type" : "number",
             "default" : 0.01,
             "minimum" : 0.000000001,
             "maximum" : 100000000.0,
-            "description": "The near clipping plane distance"
+            "description" : "The distance to the near clipping plane"
         },
-        "far"  : {
-            "title": "far",
+        "far" :
+        {
+            "title" : "far",
             "type" : "number",
             "default" : 100.00,
-            "minimum": 0.000000001,
-            "maximum": 100000000.0,
-            "description": "The far clipping plane distance"
+            "minimum" : 0.000000001,
+            "maximum" : 100000000.0,
+            "description" : "The distance to the far clipping plane"
         },
-        "front" : {
-            "title": "front",
+        "front" :
+        {
+            "title" : "front",
             "type" : "array",
             "default" : [ 1, 1, 1 ],
             "minItems" : 3,
-            "maxItems": 3,
-            "description": "The front vector of the camera"
+            "maxItems" : 3,
+            "description" : "The front vector of the camera"
         },
-        "up" : {
-            "title": "up",
+        "up" :
+        {
+            "title" : "up",
             "type" : "array",
             "default" : [ 0, 0, 1 ],
             "minItems" : 3,
-            "maxItems": 3,
-            "description": "The normalized up vector of the camera"
+            "maxItems" : 3,
+            "description" : "The normalized up vector of the camera"
         },
-        "location" : {
-            "title": "location",
+        "location" :
+        {
+            "title" : "location",
             "type" : "array",
             "default" : [ 5, 5, 1 ],
             "minItems" : 3,
-            "maxItems": 3,
-            "description": "The location of the camera"
+            "maxItems" : 3,
+            "description" : "The location of the camera"
         }
     },
-    "required"     : [ "name" ]
+    "required" : [ "name" ]
 }

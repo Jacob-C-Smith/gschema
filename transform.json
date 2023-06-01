@@ -1,0 +1,51 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "transform",
+    "type" : "object",
+    "description" : "Describes the location, rotation, and scale of a thing",
+    "properties" :
+    {
+        "location" :
+        {
+            "title" : "location",
+            "type" : "array",
+            "default" : [ 0, 0, 0 ],
+            "minItems" : 3,
+            "maxItems" : 3,
+            "description" : "The transform position. < x, y, z >"
+        },
+        "rotation" :
+        {
+            "title" : "rotation",
+            "type" : "array",
+            "default" : [ 0, 0, 0 ],
+            "minItems" : 3,
+            "maxItems" : 3,
+            "description" :  "The transform rotation in degrees. Euler angles < x, y, z >"
+        },
+        "quaternion" :
+        {
+            "title" : "quaternion",
+            "type" : "array",
+            "default" : [ 1, 0, 0, 0 ],
+            "minItems" : 4,
+            "maxItems" : 4,
+            "description" : "The transform rotation as a quaternion < u, i, j, k >"
+        },
+        "scale" :
+        {
+            "title" : "scale",
+            "type" : "array",
+            "default" : [ 1, 1, 1 ],
+            "minItems" : 3,
+            "maxItems" : 3,
+            "description" : "The transform scale. < x, y, z >"
+        }
+    },
+    "required" : [ "location", "scale" ],
+    "oneOf" :
+    [
+        { "required" : [ "rotation" ]  , "not" : { "required" : ["quaternion"] } } ,
+        { "required" : [ "quaternion" ], "not" : { "required" : ["rotation"] } }
+    ]
+}

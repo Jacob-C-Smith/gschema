@@ -1,0 +1,33 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "AI",
+    "description" : "Describes a Finite State Automaton",
+    "type" : "object",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "description" : "The name of the AI",
+            "type" : "string",
+            "default" : "AI"
+        },
+        "states" :
+        {
+            "title" : "states",
+            "description" : "A list of states",
+            "type" : "array",
+            "default" : [ "running forward", "attack" ],
+            "items" : [
+                { "type" : "string" }
+            ]
+        },
+        "initial state" :
+        {
+            "title" : "initial state",
+            "description" : "The state that the AI starts in. Must be one of the specified states",
+            "type" : "string",
+            "default" : ""
+        }
+    }
+}

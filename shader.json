@@ -1,0 +1,529 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "shader",
+    "type" : "object",
+    "description" : "Describes a shader, it's SPIR-V binaries, it's pipeline, and it's layout",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "G10 Shader",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the shader"
+        },
+        "type" :
+        {
+            "title" : "type",
+            "type" : "string",
+            "default" : "",
+            "enum" : [ "graphics", "compute", "ray" ],
+            "description" : "The type of shader pipeline"
+        },
+        "comment" :
+        {
+            "title" : "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "in" :
+        {
+            "properties" :
+            {
+                "vertex attributes" :
+                {
+                    "type" : "array",
+                    "title" : "vertex attributes",
+                    "description" : "vertex attribute",
+                    "items" : { "$ref" : "#/$defs/vertex attribute" }
+                },
+                "topology" :
+                {
+                    "type" : "string",
+                    "title" : "topology for input assembler",
+                    "enum" :
+                    [ 
+                        "point",
+                        "line list",
+                        "line strip",
+                        "triangle list",
+                        "triangle strip",
+                        "triangle fan",
+                        "line list with adjacency",
+                        "line strip with adjacency",
+                        "triangle list with adjacency",
+                        "triangle strip with adjacency",
+                        "patch list"
+                    ]
+                }
+            }
+        },
+        "layout" :
+        {
+            "title" : "shader layout",
+            "type" : [ "object", "string" ],
+            "oneOf" :
+            [
+                { "type" : "string" },
+                { "$ref" : "#/$defs/layout" }
+            ]
+        },
+        "vertex shader path" :
+        {
+            "title" : "vertex shader path",
+            "type" : "string",
+            "default" : "path/to/vertex shader.spv",
+            "description" : "Path to vertex shader binary file"
+        },
+        "tessellation control shader path" :
+        {
+            "title" : "tessellation control shader path",
+            "type" : "string",
+            "default" : "path/to/tessellation control shader.spv",
+            "description" : "Path to tessellation control shader binary file"
+        },
+        "tessellation evaluation shader path" :
+        {
+            "title" : "tessellation evaluation shader path",
+            "type" : "string",
+            "default" : "path/to/tessellation evaluation shader.spv",
+            "description" : "Path to tessellation evaluation shader binary file"
+        },
+        "geometry shader path" :
+        {
+            "title" : "geometry shader path",
+            "type" : "string",
+            "default" : "path/to/geometry shader.spv",
+            "description" : "Path to geometry shader binary file"
+        },
+        "task shader path" :
+        {
+            "title" : "task shader path",
+            "type" : "string",
+            "default" : "path/to/task shader.spv",
+            "description" : "Path to task shader binary file"
+        },
+        "mesh shader path" :
+        {
+            "title" : "mesh shader path",
+            "type" : "string",
+            "default" : "path/to/mesh shader.spv",
+            "description" : "Path to mesh shader binary file"
+        },
+        "fragment shader path" :
+        {
+            "title" : "fragment shader path",
+            "type" : "string",
+            "default" : "path/to/fragment shader.spv",
+            "description" : "Path to fragment shader file"
+        },
+        "compute shader path" :
+        {
+            "title" : "compute shader path",
+            "type" : "string",
+            "default" : "path/to/compute shader.spv",
+            "description" : "Path to compute shader binary"
+        },
+        "ray generation shader path" :
+        {
+            "title" : "ray generation shader path",
+            "type" : "string",
+            "default" : "path/to/ray generation shader.spv",
+            "description" : "Path to ray generation shader binary file"
+        },
+        "ray any hit shader path" :
+        {
+            "title" : "any hit shader path",
+            "type" : "string",
+            "default" : "path/to/any hit shader.spv",
+            "description" : "Path to any hit shader binary file"
+        },
+        "ray closest hit shader path" :
+        {
+            "title" : "closest hit ray shader path",
+            "type" : "string",
+            "default" : "path/to/closest hit shader.spv",
+            "description" : "Path to closest hit shader binary file"
+        },
+        "ray miss shader path" :
+        {
+            "title" : "miss shader path",
+            "type" : "string",
+            "default" : "path/to/miss shader.spv",
+            "description" : "Path to miss shader binary file"
+        },
+        "ray intersection shader path" :
+        {
+            "title" : "ray intersection shader path",
+            "type" : "string",
+            "default" : "path/to/ray intersection shader.spv",
+            "description" : "Path to intersection ray shader binary file"
+        },
+        "ray callable shader path" :
+        {
+            "title" : "callable ray shader path",
+            "type" : "string",
+            "default" : "path/to/callable ray shader.spv",
+            "description" : "Path to callable ray shader binary file"
+        }
+    },
+    "$defs" :
+    {
+        "layout" :
+        {
+            "type" : "object",
+            "title" : "layout",
+            "description" : "shader pipeline layout",
+            "properties" :
+            {
+                "sets" :
+                {
+                    "title" : "descriptor sets",
+                    "description" : "pipeline layout descriptor sets",
+                    "type" : "object"
+                },
+                "push constant" :
+                {
+                    "title" : "push constant",
+                    "description" : "pipeline layout push descriptor",
+                    "type" : "object",
+                    "oneOf" :
+                    [
+                        { "$ref" : "#/$defs/push constant" }
+                    ]
+                }
+            }
+        },
+        "push constant" :
+        {
+            "type" : "object",
+            "title" : "push constant",
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "descriptor sets",
+                    "description" : "pipeline layout push constant name",
+                    "type" : "string"
+                },
+                "struct" :
+                {
+                    "title" : "struct",
+                    "type" : "array",
+                    "description" : "push content",
+                    "uniqueItems" : true,
+                    "items" :  { "$ref" : "#/$defs/shader atom"}
+                }
+            }
+        },
+        "vertex attribute" :
+        {
+            "type" : "object",
+            "title" : "vertex attribute",
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "name",
+                    "description" : "name of the veretx attribute (ie. xyz, uv, nxyz)",
+                    "enum" :
+                    [
+                        "xyz",
+                        "uv",
+                        "nxyz",
+                        "txyz",
+                        "bxyz",
+                        "bgroups",
+                        "bweights"
+                    ],
+                    "type" : "string"
+                },
+                "location" :
+                {
+                    "title" : "location",
+                    "type" : "integer",
+                    "description" : "vertex attribute location",
+                    "minimum" : 0,
+                    "maximum" : 32
+                },
+                "type" :
+                {
+                    "title" : "type",
+                    "type" : "string",
+                    "description" : "type of vertex attribute",
+                    "enum" : 
+                    [
+                        "float",
+                        "vec2",
+                        "vec3",
+                        "vec4",
+                        "int",
+                        "ivec2",
+                        "ivec3",
+                        "ivec4",
+                        "uint",
+                        "uvec2",
+                        "uvec3",
+                        "uvec4",
+                        "double",
+                        "mat4",
+                        "mat3",
+                        "u8vec4",
+                        "u8vec4 sRGB"
+                    ]
+                }
+            }
+        },
+        "rasterizer" :
+        {
+            "type" : "object",
+            "title" : "rasterizer",
+            "description" : "graphics shader pipeline rasterizer",
+            "properties" :
+            {
+                "depth clamp" :
+                {
+                    "type" : "boolean",
+                    "title" : "depth clamp",
+                    "description" : "controls whether to clamp the fragment’s depth values"
+                },
+                "rasterizer discard" :
+                {
+                    "type" : "boolean",
+                    "title" : "depth clamp",
+                    "description" : "controls whether primitives are discarded immediately before the rasterization stage"
+                },
+                "polygon mode" :
+                {
+                    "type" : "string",
+                    "title" : "depth clamp enable",
+                    "description" : "the triangle rendering mode (ie, fill, line, point",
+                    "emum" : [ "fill", "line", "point" ]
+                },
+                "cull mode" :
+                {
+                    "type" : "array"
+                },
+                "clockwise" :
+                {
+                    "type" : "boolean",
+                    "title" : "clockwise",
+                    "description" : "true if front face is clockwise else false"
+                },
+                "depth bias" :
+                {
+                    "type" : "boolean",
+                    "title" : "depth bias",
+                    "description" : "controls whether to bias fragment depth values."
+                },
+                "depth bias constant factor" :
+                {
+                    "type" : "number",
+                    "title" : "depth bias constant factor",
+                    "description" : "a scalar factor controlling the constant depth value added to each fragment."
+                },
+                "depth bias clamp" :
+                {
+                    "type" : "number",
+                    "title" : "depth bias clamp",
+                    "description" : "the maximum (or minimum) depth bias of a fragment."
+                },
+                "depth bias slope factor" :
+                {
+                    "type" : "number",
+                    "title" : "depth bias slope factor",
+                    "description" : "a scalar factor applied to a fragment's slope in depth bias calculations."
+                },
+                "line width" : 
+                {
+                    "type" : "number",
+                    "title" : "line width",
+                    "description" : "the width of rasterized line segments."
+                }
+            }
+        }
+    },
+    "required" : [ "name", "layout" ],
+    "oneOf" :
+    [
+        {
+            "required" :
+            [ 
+                "vertex shader path",
+                "fragment shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "geometry shader path",
+                    "task shader path",
+                    "mesh shader path",
+                    "compute shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "vertex shader path",
+                "tessellation control shader path",
+                "tessellation evaluation shader path",
+                "fragment shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "geometry shader path",
+                    "task shader path",
+                    "mesh shader path",
+                    "compute shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "vertex shader path",
+                "geometry shader path",
+                "fragment shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "task shader path",
+                    "mesh shader path",
+                    "compute shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "mesh shader path",
+                "fragment shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "vertex shader path",
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "geometry shader path",
+                    "task shader path",
+                    "compute shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "task shader path",
+                "mesh shader path",
+                "fragment shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "vertex shader path",
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "geometry shader path",
+                    "compute shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "compute shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "vertex shader path",
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "geometry shader path",
+                    "task shader path",
+                    "mesh shader path",
+                    "fragment shader path",
+                    "ray generation shader path",
+                    "ray any hit shader path",
+                    "ray closest hit shader path",
+                    "ray miss shader path",
+                    "ray intersection shader path",
+                    "ray callable shader path"
+                ]
+            }
+        },
+        {
+            "required" :
+            [ 
+                "ray generation shader path",
+                "ray any hit shader path",
+                "ray closest hit shader path",
+                "ray miss shader path",
+                "ray intersection shader path",
+                "ray callable shader path"
+            ],
+            "not" :
+            {
+                "required" :
+                [
+                    "vertex shader path",
+                    "tessellation control shader path",
+                    "tessellation evaluation shader path",
+                    "geometry shader path",
+                    "task shader path",
+                    "mesh shader path",
+                    "fragment shader path",
+                    "compute shader path"                    
+                ]
+            }
+        }
+    ]
+    
+}

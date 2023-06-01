@@ -1,0 +1,148 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "entity",
+    "type" : "object",
+    "description" : "Describes an entity",
+    "properties" : 
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "entity",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the entity"
+        },
+        "parts" :
+        {
+            "title" : "parts",
+            "type" : "array",
+            "description" : "A list of parts used by the entity",
+            "uniqueItems" : true,
+            "items" :
+            {
+                "oneOf" :
+                [
+                    { "type" : "string" },
+                    { "$ref" : "https://schema.g10.app/part.json" }
+                ]
+            },
+            "default" :
+            [
+                {
+                    "$schema" : "https://schema.g10.app/part.json"
+                }
+            ]
+        },
+        "materials" :
+        {
+            "title" : "materials",
+            "type" : "array",
+            "description" : "A list of materials used by the entity",
+            "uniqueItems" : true,
+            "items" :
+            {
+                "oneOf" :
+                [ 
+                    { "type" : "string" },
+                    { "$ref" : "https://schema.g10.app/material.json" }
+                ] 
+            },
+            "default" :
+            [
+                {
+                    "$schema" : "https://schema.g10.app/material.json"
+                }
+            ]
+        },
+        "shader" :
+        {
+            "title" : "shader",
+            "type" : [ "string" ],
+            "description" : "The name of the shader this entity uses",
+            "default" : "PBR"
+        },
+        "transform" :
+        {
+            "title" : "transform",
+            "type" : [ "string", "object" ],
+            "description" : "The entity's transform",
+            "uniqueItems" : true,
+            "oneOf" :
+            [
+                { "type" : "string" },
+                { "$ref" : "https://schema.g10.app/transform.json" }
+            ],
+            "default" :
+            {
+                "$schema" : "https://schema.g10.app/transform.json"
+            }
+        },
+        "rigid body" :
+        {
+            "title" : "rigid body",
+            "type" :  "object",
+            "description" : "The entity's rigid body",
+            "oneOf" :
+            [
+                { "type" : "string" },
+                { "$ref" : "https://schema.g10.app/rigid-body.json" }
+            ],
+            "default" :
+            {
+                "$schema" : "https://schema.g10.app/rigid-body.json"
+            }
+        },
+        "collider" :
+        {
+            "title" : "collider",
+            "type" : [ "object", "string" ],
+            "description" : "The entity's collider",
+            "oneOf" :
+            [
+                { "type" : "string" },
+                { "$ref" : "https://schema.g10.app/collider.json" }
+            ],
+            "default" :
+            {
+                "$schema" : "https://schema.g10.app/collider.json"
+            }
+        },
+        "ai" :
+        {
+            "title" : "ai",
+            "type" : [ "object", "string" ],
+            "description" : "The entity's AI",
+            "oneOf" : 
+            [
+                {"type" : "string"},
+                {"$ref" : "https://schema.g10.app/ai.json"}
+            ],
+            "default" :
+            {
+                "$schema" : "https://schema.g10.app/ai.json"
+            }
+        },
+        "rig" : 
+        {
+            "title" : "rig",
+            "type" : [ "object", "string" ],
+            "description" : "The entity's rig",
+            "oneOf" :
+            [
+                {"type" : "string"},
+                {"$ref" : "https://schema.g10.app/rig.json"}
+            ],
+            "default" :
+            {
+                "$schema" : "https://schema.g10.app/rig.json"
+            }
+        },
+        "particle system" :
+        {
+
+        }
+    }, 
+    "required" : [ "name" ]
+}

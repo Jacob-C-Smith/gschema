@@ -1,0 +1,42 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "material",
+    "type" : "object",
+    "description" : "Describes a material",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "Material",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the material"
+        },
+        "comment" :
+        {
+            "title" : "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "textures" :
+        {
+            "title" : "textures",
+            "description" : "A list of texture objects used by the material",
+            "type" : "array",
+            "uniqueItems" : true,
+            "items" : { "$ref" : "https://schema.g10.app/texture-schema.json" },
+            "default" : 
+            [
+                {
+                    "$schema" : "https://schema.g10.app/texture-schema.json",
+                    "name" : "Texture",
+                    "path" : "path/to/file.png"
+                }
+            ]
+        }
+    },
+    "required" : [ "name" ]
+}

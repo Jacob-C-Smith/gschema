@@ -1,0 +1,104 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "scene",
+    "type" : "object",
+    "description" : "Describes a scene",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "G10 Scene",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the scene"
+        },
+        "comment" :
+        {
+            "title" : "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "entities" :
+        {
+            "title" : "entities",
+            "type" : "array",
+            "description" : "A list of entities",
+            "uniqueItems" : true,
+            "items" :
+            {
+                "oneOf" :
+                [
+                    { "type" : "string" },
+                    { "$ref" : "https://schema.g10.app/entity.json" }
+                ] 
+            },
+            "default" :
+            [ 
+                { 
+                    "$schema" : "https://schema.g10.app/entity.json"
+                }
+            ]
+        },
+        "cameras" :
+        {
+            "title" : "cameras",
+            "type" : "array",
+            "description" : "A list of cameras",
+            "uniqueItems" : true,
+            "items" :
+            {
+                "oneOf" :
+                [ 
+                    { "type" : "string" },
+                    { "$ref" : "https://schema.g10.app/camera.json" }
+                ] 
+            },
+            "default" :
+            [
+                {
+                    "$schema" : "https://schema.g10.app/camera.json"
+                }
+            ]
+        },
+        "lights" :
+        {
+            "title" : "lights",
+            "type" : "array",
+            "description" : "A list of lights",
+            "uniqueItems" : true,
+            "items" :
+            {
+                "oneOf" :
+                [ 
+                    { "type" : "string" },
+                    { "$ref" : "https://schema.g10.app/light.json" }
+                ] 
+            },
+            "default" :
+            [
+                {
+                    "$schema" : "https://schema.g10.app/light.json"
+                }
+            ]
+        },
+        "skybox" :
+        {
+            "title" : "skybox",
+            "type" : [ "string", "object" ],
+            "description" : "The skybox used by the scene",
+            "oneOf" :
+            [
+                { "type" :"string" },
+                { "$ref" : "https://schema.g10.app/skybox.json" }
+            ],
+            "default" :
+            { 
+                "$schema" : "https://schema.g10.app/skybox.json"
+            }
+        }        
+    },
+    "required" : [ "name" ]
+}

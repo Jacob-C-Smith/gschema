@@ -1,0 +1,210 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "input",
+    "type" : "object",
+    "description" : "Describes an input",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "G10 Input",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the input set"
+        },
+        "comment" :
+        {
+            "title" : "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "binds" :
+        {
+            "title" : "binds",
+            "type" : "array",
+            "description" : "A set of binds",
+            "uniqueItems" : true,
+            "items" : { "$ref" : "#/$defs/bind" },
+            "default" : 
+            [
+                {
+                    "name" : "FORWARD",
+                    "keys" : [ "W" ]
+                },
+                {
+                    "name" : "BACKWARD",
+                    "keys" : [ "S" ]
+                },
+                {
+                    "name" : "STRAFE LEFT",
+                    "keys" : [ "A" ]
+                },
+                {
+                    "name" : "STRAFE RIGHT",
+                    "keys" : [ "D" ]
+                }
+            ]
+        }        
+    },
+    "required" : [ "name" ],
+    "$defs" :
+    {
+        "bind" :
+        {
+            "type" : "object",
+            "required" : [ "name", "keys" ],
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "The name of the bind",
+                    "default" : "BIND TITLE",
+                    "minLength" : 1,
+                    "maxLength" : 255
+                },
+                "keys" :
+                {
+                    "title" : "keys",
+                    "type" : "array",
+                    "description" : "The keys that fire the bind",
+                    "default" : [  ],
+                    "items" : 
+                    {
+                        "type" : "string",
+                        "enum" : 
+                        [
+                            "RETURN",
+                            "ESCAPE",
+                            "BACKSPACE",
+                            "TAB",
+                            "SPACE",
+                            "EXCLAIMATION MARK",
+                            "DOUBLE QUOTE",
+                            "HASH",
+                            "PERCENT",
+                            "DOLLAR",
+                            "AMPERSAND",
+                            "SINGLE QUOTE",
+                            "LEFT PARENTHESIS",
+                            "RIGHT PARENTHESIS",
+                            "ASTERISK",
+                            "PLUS",
+                            "COMMA",
+                            "MINUS",
+                            "PERIOD",
+                            "SLASH",
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "COLON",
+                            "SEMICOLON",
+                            "LESS",
+                            "EQUALS",
+                            "GREATER",
+                            "QUESTION MARK",
+                            "AT",
+                            "LEFT",
+                            "BACKSLASH",
+                            "RIGHT BRACKET",
+                            "CARET",
+                            "UNDERSCORE",
+                            "BACK QUOTE",
+                            "A",
+                            "B",
+                            "C",
+                            "D",
+                            "E",
+                            "F",
+                            "G",
+                            "H",
+                            "I",
+                            "J",
+                            "K",
+                            "L",
+                            "M",
+                            "N",
+                            "O",
+                            "P",
+                            "Q",
+                            "R",
+                            "S",
+                            "T",
+                            "U",
+                            "V",
+                            "W",
+                            "X",
+                            "Y",
+                            "Z",
+                            "DELETE",
+                            "CAPS LOCK",
+                            "F1",
+                            "F2",
+                            "F3",
+                            "F4",
+                            "F5",
+                            "F6",
+                            "F7",
+                            "F8",
+                            "F9",
+                            "F10",
+                            "F11",
+                            "F12",
+                            "PRINT SCREEN",
+                            "SCROLL LOCK",
+                            "PAUSE",
+                            "INSERT",
+                            "HOME",
+                            "PAGE UP",
+                            "END",
+                            "PAGE DOWN",
+                            "RIGHT",
+                            "LEFT",
+                            "DOWN",
+                            "UP",
+                            "KEYPAD DIVIDE",
+                            "KEYPAD MULTIPLY",
+                            "KEYPAD MINUS",
+                            "KEYPAD PLUS",
+                            "KEYPAD ENTER",
+                            "KEYPAD 1",
+                            "KEYPAD 2",
+                            "KEYPAD 3",
+                            "KEYPAD 4",
+                            "KEYPAD 5",
+                            "KEYPAD 6",
+                            "KEYPAD 7",
+                            "KEYPAD 8",
+                            "KEYPAD 9",
+                            "KEYPAD 0",
+                            "KEYPAD PERIOD",
+                            "LEFT CONTROL",
+                            "LEFT SHIFT",
+                            "LEFT ALT",
+                            "RIGHT CONTROL",
+                            "RIGHT SHIFT",
+                            "RIGHT ALT",
+                            "MOUSE 1",
+                            "MOUSE 2",
+                            "MOUSE UP",
+                            "MOUSE DOWN",
+                            "MOUSE LEFT",
+                            "MOUSE RIGHT"
+                        ]
+                    }
+                }
+            }
+        }
+    }    
+}

@@ -1,0 +1,42 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "rigid body",
+    "type" : "object",
+    "description" : "Describes a rigid body",
+    "properties" :
+    {
+        "mass" :
+        {
+            "title" : "mass",
+            "type" : "number",
+            "default" : 1,
+            "description" : "The mass of the object in kilograms."
+        },
+        "active" :
+        { 
+            "title" : "active",
+            "type" : "boolean",
+            "default" : false,
+            "description" : "Does the object respond to forces?"
+        },
+        "friction" :
+        {
+            "title" : "friction",
+            "type" : "number",
+            "default" : 1,
+            "description" : "The coefficient of friction, otherwise known as μ",
+            "minimum" : 0.0,
+            "maximum" : 1.0
+        },
+        "bounce" :
+        {
+            "title" : "bounce",
+            "type" : "number",
+            "default" : 1,
+            "description" : "The bounciness, otherwise known as the coefficient of restitution",
+            "minimum" : 0.0,
+            "maximum" : 1.0
+        }
+    },
+    "required" : [ "active" ]
+}

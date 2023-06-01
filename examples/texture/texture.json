@@ -1,7 +1,0 @@
-{
-    "$schema": "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/texture-schema.json",
-    "name": "Texture",
-    "path": "path/to/file.png",
-    "addressing": "repeat",
-    "filter": "linear"
-}

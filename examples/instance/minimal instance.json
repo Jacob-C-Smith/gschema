@@ -1,9 +1,0 @@
-{
-    "$schema"              : "https://raw.githubusercontent.com/Jacob-C-Smith/G10-Schema/main/instance schema.json",
-    "name"                 : "Game",
-    "input"                : "input.json",
-    "window width"         : 1280,
-    "window height"        : 720, 
-    "window title"         : "Game",
-    "initial scene"        : "Room 3.json"
-}

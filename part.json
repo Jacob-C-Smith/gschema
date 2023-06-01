@@ -1,0 +1,45 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "part",
+    "type" : "object",
+    "description" : "Describes a part",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "Part",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the part"
+        },
+        "comment" :
+        {
+            "title" : "comment",
+            "type" : "string",
+            "default" : "comment",
+            "description" : "A comment that is ignored by G10"
+        },
+        "path" :
+        {
+            "title" : "path",
+            "type" : "string",
+            "default" : "path/to/file.ply",
+            "description" : "The path to the part"
+        },
+        "material" :
+        {
+            "title" : "material",
+            "type" : "string",
+            "oneOf" :
+            [
+                { "type" : "string" },
+                { "$ref" : "https://schema.g10.app/material.json" }
+            ],
+            "default" : "G10 Missing Material",
+            "description" : "The name of the material to use while shading the part"
+        }
+    },
+    "required" : [ "name", "path" ]
+}

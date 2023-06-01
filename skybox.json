@@ -1,0 +1,33 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "skybox",
+    "type" : "object",
+    "description" : "Describes a skybox",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "G10 Skybox",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the skybox"
+        },
+        "environment" :
+        {
+            "title" : "environment",
+            "type" : "string",
+            "default" : "path/to/environment.hdr",
+            "description" : "The path to an equirectangular Radiance HDR image. Used for the skybox"
+        },
+        "irradiance" :
+        {
+            "title" : "irradiance",
+            "type" : "string",
+            "default" : "path/to/irradiance.hdr",
+            "description" : "A blurred, low resolution version of the environment map. Used in PBR calculations"
+        }        
+    },
+    "required" : [ "name", "environment" ]
+}

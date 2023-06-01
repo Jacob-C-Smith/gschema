@@ -1,0 +1,568 @@
+{
+    "$schema" : "http://json-schema.org/schema",
+    "title" : "renderer",
+    "type" : "object",
+    "description" : "Describes a renderer",
+    "properties" :
+    {
+        "name" :
+        {
+            "title" : "name",
+            "type" : "string",
+            "default" : "Renderer",
+            "minLength" : 1,
+            "maxLength" : 255,
+            "description" : "The name of the renderer"
+        },
+        "shaders" :
+        {
+            "title" : "passes",
+            "type" : "array",
+            "description" : "Render passes",
+            "uniqueItems" : true,
+            "oneOf" :
+            [
+                { "$ref" : "https://schema.g10.app/shader.json" },
+                { "type" : "string" }
+            ]
+        },
+        "attachments" :
+        {
+            "title" : "attachments",
+            "type" : "array",
+            "description" : "A list of attachments",
+            "uniqueItems" : true,
+            "items" : { "$ref" : "#/$defs/attachment" }
+        },
+        "passes" :
+        {
+            "title" : "passes",
+            "type" : "array",
+            "description" : "A list of render passes",
+            "uniqueItems" : true,
+            "items" : { "$ref" : "#/$defs/pass" }
+        },
+        "clear color" :
+        {
+            "title" : "clear color",
+            "type" : "array",
+            "description" : "Frame buffer clear color",
+            "minItems" : 4,
+            "maxItems" : 4,
+            "oneOf" :
+            [
+                { "type" : "number" }
+            ]
+        }
+    },
+    "$defs" :
+    {
+        "def1" :
+        {
+            "type" : "object",
+            "title" : "def 1",
+            "description" : "def1",
+            "properties" :
+            {
+                "name" :
+                {
+                    
+                }
+            }
+        },
+        "attachment" :
+        {
+            "type" : "object",
+            "title" : "attachment",
+            "description" : "Describes a renderer attachment",
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "default" : "Attachment",
+                    "minLength" : 1,
+                    "maxLength" : 255,
+                    "description" : "The name of the attachment"
+                },
+                "description" :
+                {
+                    "title" : "description",
+                    "type" : "string",
+                    "default" : "[Describe your attachment]",
+                    "minLength" : 1,
+                    "maxLength" : 255,
+                    "description" : "A description of the attachment (ie, position, normal, albedo)"
+                },
+                "samples" :
+                {
+                    "title" : "samples",
+                    "type" : "integer",
+                    "default" : 1,
+                    "enum" : [ 1, 2, 4, 8, 16, 32, 64 ],
+                    "description" : "Specifies the number of samples of the image"
+                },
+                "format" :
+                {
+                    "title" : "format",
+                    "type" : "string",
+                    "default" : "unorm b8g8r8a8",
+                    "$ref" : "#/$defs/format",
+                    "description" : "The format of the image. Must be supported by physical device."
+                },
+                "load operation" :
+                {
+                    "title" : "load operation",
+                    "type" : "string",
+                    "default" : "don't care",
+                    "$ref" : "#/$defs/attachment load operation",
+                    "description" : "This operation is called on vkCmdBeginRenderPass"
+                },
+                "store operation" :
+                {
+                    "title" : "store operation",
+                    "type" : "string",
+                    "default" : "don't care",
+                    "$ref" : "#/$defs/attachment store operation",
+                    "description" : "This operation is called on vkCmdEndRenderPass"
+                },
+                "initial layout" :
+                {
+                    "title" : "initial layout",
+                    "type" : "string",
+                    "default" : "color attachment",
+                    "$ref" : "#/$defs/image layout",
+                    "description" : "Initial layout of image and image subresources"
+                },
+                "final layout" :
+                {
+                    "title" : "final layout",
+                    "type" : "string",
+                    "default" : "color attachment",
+                    "$ref" : "#/$defs/image layout",
+                    "description" : "Final layout of image and image subresources"
+                }
+            }
+        },
+        "format" :
+        {
+            "enum" :
+            [
+                "undefined",
+                "unorm r8",
+                "snorm r8",
+                "uscaled r8",
+                "sscaled r8",
+                "uint r8",
+                "sint r8",
+                "sRGB r8",
+                "unorm r8g8",
+                "snorm r8g8",
+                "uscaled r8g8",
+                "sscaled r8g8",
+                "uint r8g8",
+                "sint r8g8",
+                "sRGB r8g8",
+                "unorm r8g8b8",
+                "snorm r8g8b8",
+                "uscaled r8g8b8",
+                "sscaled r8g8b8",
+                "uint r8g8b8",
+                "sint r8g8b8",
+                "sRGB r8g8b8",
+                "unorm b8g8r8",
+                "snorm b8g8r8",
+                "uscaled b8g8r8",
+                "sscaled b8g8r8",
+                "uint b8g8r8",
+                "sint b8g8r8",
+                "sRGB b8g8r8",
+                "unorm r8g8b8a8",
+                "snorm r8g8b8a8",
+                "uscaled r8g8b8a8",
+                "sscaled r8g8b8a8",
+                "uint r8g8b8a8",
+                "sint r8g8b8a8",
+                "sRGB r8g8b8a8",
+                "unorm b8g8r8a8",
+                "snorm b8g8r8a8",
+                "uscaled b8g8r8a8",
+                "sscaled b8g8r8a8",
+                "uint b8g8r8a8",
+                "sint b8g8r8a8",
+                "sRGB b8g8r8a8",
+                "unorm r16",
+                "snorm r16",
+                "uscaled r16",
+                "sscaled r16",
+                "uint r16",
+                "sint r16",
+                "sfloat r16",
+                "unorm r16g16",
+                "snorm r16g16",
+                "uscaled r16g16",
+                "sscaled r16g16",
+                "uint r16g16",
+                "sint r16g16",
+                "sfloat r16g16",
+                "unorm r16g16b16",
+                "snorm r16g16b16",
+                "uscaled r16g16b16",
+                "sscaled r16g16b16",
+                "uint r16g16b16",
+                "sint r16g16b16",
+                "sfloat r16g16b16",
+                "unorm r16g16b16a16",
+                "snorm r16g16b16a16",
+                "uscaled r16g16b16a16",
+                "sscaled r16g16b16a16",
+                "uint r16g16b16a16",
+                "sint r16g16b16a16",
+                "sfloat r16g16b16a16",
+                "uint r32",
+                "sint r32",
+                "sfloat r32",
+                "uint r32g32",
+                "sint r32g32",
+                "sfloat r32g32",
+                "uint r32g32b32",
+                "sint r32g32b32",
+                "sfloat r32g32b32",
+                "uint r32g32b32a32",
+                "sint r32g32b32a32",
+                "sfloat r32g32b32a32",
+                "uint r64",
+                "sint r64",
+                "sfloat r64",
+                "uint r64g64",
+                "sint r64g64",
+                "sfloat r64g64",
+                "uint r64g64b64",
+                "sint r64g64b64",
+                "sfloat r64g64b64",
+                "uint r64g64b64a64",
+                "sint r64g64b64a64",
+                "sfloat r64g64b64a64",
+                "unorm d16",
+                "sfloat d32",
+                "uint s8",
+                "unorm d16 uint s8",
+                "unorm d24 uint s8"
+            ]
+        },
+        "attachment load operation" :
+        {
+            "enum" : [
+                "load",
+                "clear",
+                "don't care"
+            ]
+        },
+        "attachment store operation" :
+        {
+            "enum" : [
+                "store",
+                "don't care",
+                "none"
+            ]
+        },
+        "image layout" :
+        {
+            "enum" : 
+            [
+                "undefined",
+                "general",
+                "color attachment",
+                "depth stencil attachment",
+                "depth stencil read only",
+                "shader read only",
+                "transfer source",
+                "transfer destination",
+                "pre initialized",
+                "depth read only stencil attachment",
+                "depth attachment stencil read only",
+                "depth attachment",
+                "depth read only",
+                "stencil attachment",
+                "stencil read only",
+                "read only",
+                "attachment",
+                "present source"
+            ]
+        },
+        "dependency flags" :
+        {
+            "enum" : 
+            [
+                "by region",
+                "device group",
+                "view local"
+            ]
+        },
+        "pipeline stage flag bits" :
+        {
+            "enum" : [
+                "none",
+                "top of pipe",
+                "draw indirect",
+                "vertex input",
+                "vertex shader",
+                "tessellation control shader",
+                "tessellation evaluation shader",
+                "geometry shader",
+                "fragment shader",
+                "early fragment tests",
+                "late fragment tests",
+                "color attachment output",
+                "compute shader",
+                "transfer",
+                "bottom of pipe",
+                "host",
+                "all graphics",
+                "all commands",
+                "transform feedback",
+                "acceleration structure build",
+                "ray tracing",
+                "fragment density process",
+                "fragment shading rate attachment",
+                "task",
+                "mesh"
+            ]
+        },
+        "access flag bits" :
+        {
+            "enum" : [
+                "none",
+                "indirect command read",
+                "index read",
+                "vertex attribute read",
+                "uniform read",
+                "input attachment read",
+                "shader read",
+                "shader write",
+                "color attachment read",
+                "color attachment write",
+                "stencil attachment read",
+                "stencil attachment write",
+                "transfer read",
+                "transfer write",
+                "host read",
+                "host write",
+                "memory read",
+                "memory write",
+                "transform feedback write",
+                "transform feedback counter read",
+                "transform feedback counter write",
+                "conditional rendering read",
+                "color attachment read noncoherent",
+                "acceleration structure read khr",
+                "acceleration structure write",
+                "fragment density map read",
+                "fragment shading rate attachment read",
+                "command preprocess read",
+                "command preprocess write",
+                "shading rate image read",
+                "acceleration structure read",
+                "acceleration structure write",
+                "none khr"
+            ]
+        },
+        "pass" :
+        {
+            "type" : "object",
+            "title" : "passes",
+            "description" : "Describes a render pass",
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "default" : "Render Pass",
+                    "minLength" : 1,
+                    "maxLength" : 255,
+                    "description" : "The name of the render pass"
+                },
+                "subpasses" :
+                {
+                    "title" : "subpasses",
+                    "description" : "A list of subpasses",
+                    "type" : "array",
+                    "default" :
+                    [
+                        {
+                            
+                        }
+                    ],
+                    "items" : { "$ref" : "#/$defs/subpass" }
+                },
+                "dependencies" :
+                {
+                    "properties" :
+                    {
+                        "flags" :
+                        {
+                            "title" : "flags",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "source subpass" :
+                        {
+                            "title" : "source subpass",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "destination subpass" :
+                        {
+                            "title" : "destination subpass",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "source stage" :
+                        {
+                            "title" : "source stage",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "destination stage" :
+                        {
+                            "title" : "destination stage",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "source access" :
+                        {
+                            "title" : "source access",
+                            "type" : "string",
+                            "description" : ""
+                        },
+                        "destination access" :
+                        {
+                            "title" : "destination access",
+                            "type" : "string",
+                            "description" : ""
+                        }
+                    }
+                }
+            }
+        },
+        "subpass" :
+        {
+            "type" : "object",
+            "title" : "subpass",
+            "description" : "Specifies a subpass",
+            "properties" :
+            {
+                "name" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "default" : "Subpass",
+                    "minLength" : 1,
+                    "maxLength" : 255,
+                    "description" : "The name of the subpass"
+                },
+                "shaders" :
+                {
+                    "title" : "shader",
+                    "type" : [ "array" ],
+                    "default" : [ "path/to/shader.json" ],
+                    "description" : "A list of shaders used in the subpass",
+                    "items" : 
+                    [
+                        { "type" : "string" }
+                    ]
+                },
+                "input attachments" :
+                {
+                    "title" : "input attachments",
+                    "type" : "array",
+                    "description" : "A list of attachment names"
+                },
+                "color attachments" :
+                {
+                    "title" : "color attachments",
+                    "type" : "array",
+                    "description" : "A list of attachment names"
+                },
+                "preserved attachments" :
+                {
+                    "title" : "preserved attachments",
+                    "type" : "array",
+                    "description" : "A list of attachment names"
+                },
+                "depth attachment" :
+                {
+                    "title" : "depth attachment",
+                    "type" : "strign",
+                    "description" : "name of depth attachment"
+                }
+            },
+            "required" : [ "name", "shader" ]
+        },
+        "dependency" : 
+        {
+            "type" : "object",
+            "title" : "pass",
+            "description" : "Specifies a subpass",
+            "properties" :
+            {
+                "flags" :
+                {
+                    "title" : "flags",
+                    "type" : "string",
+                    "default" : "by region",
+                    "$ref" : "#/$defs/dependency flags",
+                    "description" : "TODO"
+                },
+                "source subpass" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "The name of the dependency source subpass"
+                },
+                "destination subpass" :
+                {
+                    "title" : "name",
+                    "type" : "string",
+                    "description" : "The name of the dependency destination subpass"
+                },
+                "source stage" :
+                {
+                    "title" : "source stage",
+                    "type" : "string",
+                    "default" : "color attachment output",
+                    "$ref" : "#/$defs/pipeline stage flag bits",
+                    "description" : "TODO"
+                },
+                "destination stage" :
+                {
+                    "title" : "destination stage",
+                    "type" : "string",
+                    "default" : "fragment shader",
+                    "$ref" : "#/$defs/pipeline stage flag bits",
+                    "description" : "TODO"
+                },
+                "source access" :
+                {
+                    "title" : "source access",
+                    "type" : "string",
+                    "default" : "color attachment write",
+                    "$ref" : "#/$defs/access flag bits",
+                    "description" : "TODO"
+                },
+                "destination access" :
+                {
+                    "title" : "destination access",
+                    "type" : "string",
+                    "default" : "shader read",
+                    "$ref" : "#/$defs/access flag bits",
+                    "description" : "TODO"
+                }
+            },
+            "required" : [ "name", "shader" ]
+        }
+    },
+    "required" : [ "name" ]
+}
