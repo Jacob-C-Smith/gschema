@@ -199,6 +199,98 @@
             },
             "properties" :
             {
+                "device" : 
+                {
+                    "title"       : "device",
+                    "description" : "Describes a vulkan device",
+                    "type"        : "object",
+                    "default"     : 
+                    {
+                        "extensions" : 
+                        [
+                            "VK_KHR_swapchain",
+                            "VK_EXT_mesh_shader",
+                            "VK_EXT_descriptor_buffer",
+                            "VK_KHR_synchronization2"
+                        ]
+                    },
+                    "properties": {
+                        "name" :
+                        {
+                            "title" : "device name",
+                            "description" : "The name of the device"
+                        },
+                        "extensions" : 
+                        {
+                            "title" : "device extensions",
+                            "type"  : "array",
+                            "items" : {
+                                "type" : "string",
+                                "enum" : [
+                                    "robust buffer access",
+                                    "full draw index uint32",
+                                    "image cube array",
+                                    "independent blend",
+                                    "geometry shader",
+                                    "tessellation shader",
+                                    "sample rate shading",
+                                    "dual src blend",
+                                    "logic op",
+                                    "multi draw indirect",
+                                    "draw indirect first instance",
+                                    "depth clamp",
+                                    "depth bias clamp",
+                                    "fill mode non solid",
+                                    "depth bounds",
+                                    "widelines",
+                                    "large points",
+                                    "alpha to one",
+                                    "multi viewport",
+                                    "sampler anisotropy",
+                                    "texture compression ETC2",
+                                    "texture compression ASTC LDR",
+                                    "texture compression BC",
+                                    "occlusion query precise",
+                                    "pipeline statistics query",
+                                    "vertex pipeline stores and atomics",
+                                    "fragment stores and atomics",
+                                    "shader tessellation and geometry point size",
+                                    "shader image gather extended",
+                                    "shader storage image extended formats",
+                                    "shader storage image multisample",
+                                    "shader storage image read without format",
+                                    "shader storage image write without format",
+                                    "shader uniform buffer array dynamic indexing",
+                                    "shader sampled image array dynamic indexing",
+                                    "shader storage buffer array dynamic indexing",
+                                    "shader storage image array dynamic indexing",
+                                    "shader clip distance",
+                                    "shader cull distance",
+                                    "shader float64",
+                                    "shader int64",
+                                    "shader int16",
+                                    "shader resource residency",
+                                    "shader resource min LOD",
+                                    "sparse binding",
+                                    "sparse residency buffer",
+                                    "sparse residency image 2D",
+                                    "sparse residency image 3D",
+                                    "sparse residency 2 samples",
+                                    "sparse residency 4 samples",
+                                    "sparse residency 8 samples",
+                                    "sparse residency 16 samples",
+                                    "sparse residency aliased",
+                                    "variable multisample rate",
+                                    "inherited queries"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "instance" :
+                {
+                    
+                },
                 "device extensions" :
                 {
                     "title" : "device extensions",
