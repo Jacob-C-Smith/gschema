@@ -214,8 +214,7 @@
                     "title" : "struct",
                     "type" : "array",
                     "description" : "push content",
-                    "uniqueItems" : true,
-                    "items" :  { "$ref" : "#/$defs/shader atom"}
+                    "uniqueItems" : true                    
                 }
             }
         },

@@ -220,9 +220,9 @@
                             "title" : "device name",
                             "description" : "The name of the device"
                         },
-                        "extensions" : 
+                        "features" : 
                         {
-                            "title" : "device extensions",
+                            "title" : "device features",
                             "type"  : "array",
                             "items" : {
                                 "type" : "string",
@@ -284,6 +284,10 @@
                                     "inherited queries"
                                 ]
                             }
+                        },
+                        "extensions" : 
+                        {
+                            
                         }
                     }
                 },
