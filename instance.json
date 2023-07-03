@@ -287,7 +287,16 @@
                         },
                         "extensions" : 
                         {
-                            
+                            "title" : "device extensions",
+                            "type" : "array",
+                            "items" :
+                            {
+                                "type" : "string",
+                                "enum" : 
+                                [
+                                    ""
+                                ]
+                            }
                         }
                     }
                 },
