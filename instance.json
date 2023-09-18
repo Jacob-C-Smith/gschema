@@ -169,6 +169,14 @@
             "maximum" : 32,
             "description" : "Specifies how many threads are used to load a scene"
         },
+        "fixed tick rate" :
+        {
+            "title" : "fixed tick rate",
+            "type" : "integer",
+            "default" : 32,
+            "maximum" : 256,
+            "description" : "Specifies how many times the game will update per second. Larger values will produce smoother simulations, at the cost of processing power."
+        },
         "vulkan" :
         {
             "title" : "vulkan",
